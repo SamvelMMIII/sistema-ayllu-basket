@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio | Ayllu Basket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+
+<body>
+  <div class="d-flex">
+    <aside class="sidebar d-flex flex-column p-3">
+      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom border-light border-opacity-10">
+        <img class="sidebar-logo" src="../assets/ayllu-basket-logo.jpg" alt="Ayllu Basket" />
+        <span class="sidebar-brand-text">AYLLU <b>BASKET</b></span>
+      </div>
+
+      <p class="text-uppercase text-white-50 small mb-2 ps-2" style="font-size:10px; letter-spacing:.15em;">Menú</p>
+      <ul class="nav flex-column gap-1 mb-auto">
+        <li class="nav-item">
+          <a class="nav-link active rounded-2 d-flex align-items-center gap-2" href="home.html">
+            <i class="bi bi-grid-1x2-fill"></i> Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="jugadores.html">
+            <i class="bi bi-people-fill"></i> Jugadores
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="categorias.html">
+            <i class="bi bi-collection-fill"></i> Categorías
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="calendario.html">
+            <i class="bi bi-calendar-event-fill"></i> Calendario
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="pagos.html">
+            <i class="bi bi-wallet2"></i> Pagos
+          </a>
+        </li>
+
+      </ul>
+
+      <ul class="nav flex-column gap-1">
+        <li class="nav-item">
+          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="acceso.html">
+            <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+          </a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top border-light border-opacity-10">
+        <span class="user-avatar-circle rounded-circle d-flex align-items-center justify-content-center">MR</span>
+        <span class="text-white small">
+          <strong class="d-block" style="font-size:12px;">María Rojas</strong>
+        </span>
+      </div>
+    </aside>
+
+    <div class="flex-grow-1 d-flex flex-column">
+      <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom border-cream">
+        <h5 class="mb-0 fw-bold ">Inicio</h5>
+        <div class="d-flex gap-2"></div>
+      </header>
+
+      <main class="p-4">
+        <div class="mb-4">
+          <h3 class="fw-bold"> <strong>Bienvenida, María</strong></h3>
+          <p class="text-muted small">Resumen de la actividad del club.</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-people-fill fs-3 text-secondary"></i>
+                <h4 class="fw-bold mt-2 mb-0">24</h4>
+                <small class="text-muted">Jugadores</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-collection-fill fs-3 text-secondary"></i>
+                <h4 class="fw-bold mt-2 mb-0">4</h4>
+                <small class="text-muted">Categorías</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-wallet2 fs-3 text-secondary"></i>
+                <h4 class="fw-bold mt-2 mb-0">87%</h4>
+                <small class="text-muted">Pagos al día</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla jugadores y eventos -->
+        <div class="row g-3">
+
+          <!-- Jugadores -->
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+              <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-people-fill text-secondary me-2"></i>Jugadores recientes</h6>
+                <a href="#" class="small text-decoration-none text-dark">Ver todos →</a>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-borderless mb-0 align-middle small">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Jugador</th>
+                      <th>Categoría</th>
+                      <th>Pago</th>
+                      <th>Asistencia</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">Sofía Rojas</td>
+                      <td><span class="badge bg-dark">Sub-12</span></td>
+                      <td><span class="text-success">● Al día</span></td>
+                      <td>92%</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Matías López</td>
+                      <td><span class="badge bg-secondary">Sub-10</span></td>
+                      <td><span class="text-warning">● Pendiente</span></td>
+                      <td>85%</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Agustina Vera</td>
+                      <td><span class="badge bg-success">Sub-14</span></td>
+                      <td><span class="text-success">● Al día</span></td>
+                      <td>96%</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Diego Ramírez</td>
+                      <td><span class="badge bg-dark">Sub-12</span></td>
+                      <td><span class="text-success">● Al día</span></td>
+                      <td>88%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Próximos eventos -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+              <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-calendar-event-fill text-secondary me-2"></i>Próximos eventos
+                </h6>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <strong class="d-block small">Entrenamiento Sub-12</strong>
+                  <small class="text-muted">28 Oct · 18:00 · Cancha 2</small>
+                </li>
+                <li class="list-group-item">
+                  <strong class="d-block small">Partido amistoso</strong>
+                  <small class="text-muted">30 Oct · 10:00 · Club Vecino</small>
+                </li>
+                <li class="list-group-item">
+                  <strong class="d-block small">Reunión apoderados</strong>
+                  <small class="text-muted">02 Nov · 19:30 · Sala club</small>
+                </li>
+                <li class="list-group-item">
+                  <strong class="d-block small">Torneo zonal Sub-14</strong>
+                  <small class="text-muted">05 Nov · 09:00 · Polideportivo</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+</body>
+
+</html>
