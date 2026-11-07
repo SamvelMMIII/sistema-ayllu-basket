@@ -1,0 +1,85 @@
+/* ── Variables de marca ─────────────────────── */
+:root {
+    --wine: #681c25;
+    --wine-deep: #49121a;
+    --orange: #e99058;
+    --orange-pale: #f5d5bd;
+    --cream: #fbf7f1;
+    --ink: #25211f;
+    --muted: #827a74;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+}
+
+/* ── Sidebar ───────────────────────────────── */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: var(--wine);
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 248, 238, .7);
+    font-size: 14px;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    color: #fff;
+    background: rgba(255, 245, 230, .12);
+}
+
+.sidebar .nav-link.active {
+    border-left: 3px solid var(--orange);
+}
+
+.sidebar-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 249, 240, .35);
+    object-fit: contain;
+    background: #fff;
+}
+
+.sidebar-brand-text {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: .08em;
+    color: #fffaf4;
+}
+
+.sidebar-brand-text b {
+    color: var(--orange-pale);
+}
+
+.user-avatar-circle {
+    width: 36px;
+    height: 36px;
+    background: var(--orange);
+    color: var(--wine-deep);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ── Contenido principal ───────────────────── */
+.bg-wine {
+    background-color: var(--wine) !important;
+    color: #fff;
+}
+
+.text-wine {
+    color: var(--wine) !important;
+}
+
+.text-orange {
+    color: var(--orange) !important;
+}
+
+.border-cream {
+    border-color: #e9e1d9 !important;
+}
