@@ -1,222 +1,304 @@
 <!doctype html>
-<html lang="es" data-bs-theme="light">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jugadores | Ayllu Basket</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="../css/estilos.css" />
-</head>
-
-<body>
-  <div class="d-flex">
-    <aside class="sidebar d-flex flex-column p-3">
-      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom border-light border-opacity-10">
-        <img class="sidebar-logo" src="../assets/ayllu-basket-logo.jpg" alt="Ayllu Basket" />
-        <span class="sidebar-brand-text">AYLLU <b>BASKET</b></span>
-      </div>
-
-      <p class="text-uppercase text-white-50 small mb-2 ps-2" style="font-size:10px; letter-spacing:.15em;">Menú</p>
-      <ul class="nav flex-column gap-1 mb-auto">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="home.html">
-            <i class="bi bi-grid-1x2-fill"></i> Inicio
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active rounded-2 d-flex align-items-center gap-2" href="jugadores.html">
-            <i class="bi bi-people-fill"></i> Jugadores
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="categorias.html">
-            <i class="bi bi-collection-fill"></i> Categorías
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="calendario.html">
-            <i class="bi bi-calendar-event-fill"></i> Calendario
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="pagos.html">
-            <i class="bi bi-wallet2"></i> Pagos
-          </a>
-        </li>
-      </ul>
-
-      <ul class="nav flex-column gap-1">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="acceso.html">
-            <i class="bi bi-box-arrow-left"></i> Cerrar sesión
-          </a>
-        </li>
-      </ul>
-
-      <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top border-light border-opacity-10">
-        <span class="user-avatar-circle rounded-circle d-flex align-items-center justify-content-center">MR</span>
-        <span class="text-white small">
-          <strong class="d-block" style="font-size:12px;">María Rojas</strong>
-        </span>
-      </div>
-    </aside>
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom border-cream">
-        <h5 class="mb-0 fw-bold">Jugadores</h5>
-        <div class="d-flex gap-2"></div>
-      </header>
-
-      <main class="p-4">
-        <div class="mb-4">
-          <h3 class="fw-bold">Listado de jugadores</h3>
-          <p class="text-muted small">Todos los jugadores inscritos en el club.</p>
-        </div>
-
-        <div class="card border-0 shadow-sm">
-          <div class="card-header bg-white d-flex justify-content-between align-items-center">
-            <h6 class="mb-0 fw-bold"><i class="bi bi-people-fill text-secondary me-2"></i>Jugadores inscritos</h6>
-            <span class="badge bg-secondary">12 jugadores</span>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-borderless mb-0 align-middle small">
-              <thead class="table-light">
-                <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Categoría</th>
-                  <th>Posición</th>
-                  <th>Apoderado</th>
-                  <th>Estado pago</th>
-                  <th>Asistencia</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>7</td>
-                  <td class="fw-semibold">Sofía Rojas</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Base</td>
-                  <td>María Rojas</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>92%</td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td class="fw-semibold">Matías López</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Alero</td>
-                  <td>Carolina López</td>
-                  <td><span class="text-warning">● Pendiente</span></td>
-                  <td>85%</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td class="fw-semibold">Agustina Vera</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Escolta</td>
-                  <td>Claudia Vera</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>96%</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td class="fw-semibold">Diego Ramírez</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Pívot</td>
-                  <td>Pedro Ramírez</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>88%</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td class="fw-semibold">Valentina Muñoz</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Base</td>
-                  <td>Andrea Muñoz</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>91%</td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td class="fw-semibold">Tomás Herrera</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Ala-pívot</td>
-                  <td>Jorge Herrera</td>
-                  <td><span class="text-warning">● Pendiente</span></td>
-                  <td>78%</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td class="fw-semibold">Isidora Campos</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Escolta</td>
-                  <td>Marcela Campos</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>94%</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td class="fw-semibold">Benjamín Soto</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Alero</td>
-                  <td>Luis Soto</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>87%</td>
-                </tr>
-                <tr>
-                  <td>14</td>
-                  <td class="fw-semibold">Catalina Díaz</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Base</td>
-                  <td>Rosa Díaz</td>
-                  <td><span class="text-warning">● Pendiente</span></td>
-                  <td>82%</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td class="fw-semibold">Martín Figueroa</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Pívot</td>
-                  <td>Elena Figueroa</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>90%</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td class="fw-semibold">Renata Pizarro</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Alero</td>
-                  <td>Felipe Pizarro</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>93%</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td class="fw-semibold">Lucas Morales</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Ala-pívot</td>
-                  <td>Gabriela Morales</td>
-                  <td><span class="text-success">● Al día</span></td>
-                  <td>89%</td>
-                </tr>
-              </tbody>
-            </table>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Jugadores | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/jugadores.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="home.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">
+          Gestión del club
+        </p>
+        <nav class="nav-list">
+          <a class="nav-link" href="home.html" aria-label="Inicio"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link active" href="jugadores.html" aria-label="Jugadores"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link" href="categorias.html" aria-label="Categorías"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link" href="calendario.html" aria-label="Calendario"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link" href="pagos.html" aria-label="Pagos"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link" href="usuarios.html" aria-label="Usuarios"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="acceso.html" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
           </div>
         </div>
-
-      </main>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Gestión de jugadores</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">
+                Gestión del club / Jugadores
+              </p>
+              <h1>
+                Jugadores
+              </h1>
+              <p>
+                Administra las inscripciones, categorías y contactos de apoderados.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" data-open-modal="player-modal"><i class="bi bi-person-plus"></i> Inscribir jugador</button>
+            </div>
+          </section>
+          <section class="stat-grid">
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Inscritos esta temporada</span><span class="stat-icon"><i class="bi bi-people"></i></span>
+              </div>
+              <div class="stat-value" data-total-players>
+                140
+              </div>
+              <div class="stat-foot">
+                Inscripciones activas
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Inscripciones por revisar</span><span class="stat-icon"><i class="bi bi-person-plus"></i></span>
+              </div>
+              <div class="stat-value">
+                6
+              </div>
+              <div class="stat-foot">
+                Falta completar documentación
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Asistencia promedio</span><span class="stat-icon"><i class="bi bi-calendar2-check"></i></span>
+              </div>
+              <div class="stat-value">
+                91%
+              </div>
+              <div class="stat-foot">
+                Últimos 30 días
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Con cuota pendiente</span><span class="stat-icon"><i class="bi bi-exclamation-circle"></i></span>
+              </div>
+              <div class="stat-value">
+                18
+              </div>
+              <div class="stat-foot">
+                Revisar en <a class="link" href="pagos.html">Pagos</a>
+              </div>
+            </article>
+          </section>
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <h2 class="card-title">
+                  Directorio de jugadores
+                </h2>
+                <p class="card-subtitle">
+                  Información de contacto y estado de cada inscripción
+                </p>
+              </div>
+              <button class="btn btn-light btn-sm" onclick="window.print()"><i class="bi bi-download"></i> Exportar</button>
+            </div>
+            <div class="toolbar">
+              <span class="toolbar-count"><strong id="visible-count">4</strong> resultados</span>
+              <div class="filters">
+                <label class="search"><i class="bi bi-search"></i><input class="field" type="search" placeholder="Buscar jugador o apoderado" data-filter-search="players-table"></label><select class="field" data-filter-select="players-table"><option value="">Todas las categorías</option><option>U11 Mixto</option><option>U13 Damas</option><option>U13 Varones</option><option>U15 Damas</option><option>U15 Varones</option><option>U17 Damas</option><option>U17 Varones</option><option>U21 / Sub-21</option><option>U23 Varones</option><option>Varones TC</option><option>Máx 35+ Varones</option></select>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table id="players-table">
+                <thead>
+                  <tr>
+                    <th>
+                      Jugador
+                    </th>
+                    <th>
+                      Categoría
+                    </th>
+                    <th>
+                      Apoderado
+                    </th>
+                    <th>
+                      Asistencia
+                    </th>
+                    <th>
+                      Mensualidad
+                    </th>
+                    <th>
+                      Inscripción
+                    </th>
+                    <th>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-category="U11 Mixto">
+                    <td>
+                      <div class="player-cell">
+                        <span class="player-avatar">SR</span><span><span class="player-name">Sofía Rojas</span><br><span class="muted">N.º 7 · 11 años</span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-neutral">U11 Mixto</span>
+                    </td>
+                    <td>
+                      María Rojas<br><span class="muted">+56 9 6321 4400</span>
+                    </td>
+                    <td>
+                      92%
+                    </td>
+                    <td>
+                      <span class="badge badge-green">Al día</span>
+                    </td>
+                    <td>
+                      <span class="badge badge-green">Completa</span>
+                    </td>
+                    <td>
+                      <button class="icon-btn" title="Ver ficha" data-player-detail="Sofía Rojas · U11 Mixto · Apoderada: María Rojas · Asistencia: 92%"><i class="bi bi-arrow-up-right"></i></button>
+                    </td>
+                  </tr>
+                  <tr data-category="U11 Mixto">
+                    <td>
+                      <div class="player-cell">
+                        <span class="player-avatar">ML</span><span><span class="player-name">Matías López</span><br><span class="muted">N.º 12 · 9 años</span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-neutral">U11 Mixto</span>
+                    </td>
+                    <td>
+                      Carolina López<br><span class="muted">+56 9 7740 1822</span>
+                    </td>
+                    <td>
+                      85%
+                    </td>
+                    <td>
+                      <span class="badge badge-yellow">Pendiente</span>
+                    </td>
+                    <td>
+                      <span class="badge badge-green">Completa</span>
+                    </td>
+                    <td>
+                      <button class="icon-btn" title="Ver ficha" data-player-detail="Matías López · U11 Mixto · Apoderada: Carolina López · Asistencia: 85%"><i class="bi bi-arrow-up-right"></i></button>
+                    </td>
+                  </tr>
+                  <tr data-category="U13 Damas">
+                    <td>
+                      <div class="player-cell">
+                        <span class="player-avatar">AV</span><span><span class="player-name">Agustina Vera</span><br><span class="muted">N.º 3 · 13 años</span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-neutral">U13 Damas</span>
+                    </td>
+                    <td>
+                      Claudia Vera<br><span class="muted">+56 9 6159 8331</span>
+                    </td>
+                    <td>
+                      96%
+                    </td>
+                    <td>
+                      <span class="badge badge-green">Al día</span>
+                    </td>
+                    <td>
+                      <span class="badge badge-green">Completa</span>
+                    </td>
+                    <td>
+                      <button class="icon-btn" title="Ver ficha" data-player-detail="Agustina Vera · U13 Damas · Apoderada: Claudia Vera · Asistencia: 96%"><i class="bi bi-arrow-up-right"></i></button>
+                    </td>
+                  </tr>
+                  <tr data-category="U13 Varones">
+                    <td>
+                      <div class="player-cell">
+                        <span class="player-avatar">DR</span><span><span class="player-name">Diego Ramírez</span><br><span class="muted">N.º 5 · 12 años</span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-neutral">U13 Varones</span>
+                    </td>
+                    <td>
+                      Pedro Ramírez<br><span class="muted">+56 9 8300 2514</span>
+                    </td>
+                    <td>
+                      88%
+                    </td>
+                    <td>
+                      <span class="badge badge-green">Al día</span>
+                    </td>
+                    <td>
+                      <span class="badge badge-yellow">Por revisar</span>
+                    </td>
+                    <td>
+                      <button class="icon-btn" title="Ver ficha" data-player-detail="Diego Ramírez · U13 Varones · Apoderado: Pedro Ramírez · Asistencia: 88%"><i class="bi bi-arrow-up-right"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="empty-filter" id="players-empty">
+                No encontramos jugadores con esos filtros.
+              </div>
+            </div>
+          </article>
+        </main>
+      </div>
     </div>
-
-  </div>
-</body>
-
+    <dialog class="modal" id="player-modal">
+      <form data-form-action="player" data-season-year="2026">
+        <div class="modal-head">
+          <div>
+            <h2>
+              Nueva inscripción
+            </h2>
+            <p>
+              Registra al jugador y vincula a su apoderado.
+            </p>
+          </div>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="player-name">Nombre del jugador</label><input class="field" id="player-name" name="name" required placeholder="Nombre y apellido">
+            </div>
+            <div class="form-field">
+              <label for="player-birth">Fecha de nacimiento</label><input class="field" id="player-birth" name="birth" type="date" required>
+            </div>
+            <div class="form-field">
+              <label for="player-gender">División</label><select class="field" id="player-gender" name="gender"><option value="">Seleccionar si corresponde</option><option>Damas</option><option>Varones</option></select>
+            </div>
+            <div class="form-field">
+              <label for="player-category">Categoría asignada</label><input class="field" id="player-category" name="category" readonly required placeholder="Se asigna por año de nacimiento">
+            </div>
+            <p class="form-hint full" id="category-hint">
+              Ingresa la fecha de nacimiento para calcular la categoría.
+            </p>
+            <div class="form-field">
+              <label for="guardian-name">Nombre del apoderado</label><input class="field" id="guardian-name" name="guardian" required placeholder="Nombre y apellido">
+            </div>
+            <div class="form-field full">
+              <label for="guardian-phone">Teléfono de contacto</label><input class="field" id="guardian-phone" name="phone" type="tel" required placeholder="+56 9 1234 5678">
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar inscripción</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite">
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

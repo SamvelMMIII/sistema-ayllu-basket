@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Iniciar sesión | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/acceso.css">
+  </head>
+  <body class="auth-page">
+    <main class="auth-card">
+      <section class="auth-brand">
+        <a class="brand" href="acceso.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <div class="auth-brand-copy">
+          <span class="auth-mark"><i class="bi bi-basket2"></i></span>
+          <h1>
+            Acceso administrativo
+          </h1>
+          <p>
+            Club de Básquetbol Ayllu Basket
+          </p>
+        </div>
+        <div class="auth-brand-mark">
+          <small>Club de Básquetbol Ayllu Basket</small>
+        </div>
+      </section>
+      <section class="auth-panel">
+        <h2>
+          Iniciar sesión
+        </h2>
+        <p>
+          Ingresa tus datos para continuar.
+        </p>
+        <form class="auth-form" data-auth-form="login">
+          <div class="form-field">
+            <label for="login-email">Correo electrónico</label><input class="field" id="login-email" name="email" type="email" autocomplete="username" placeholder="nombre@correo.cl" required>
+          </div>
+          <div class="form-field">
+            <label for="login-password">Contraseña</label><input class="field" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Tu contraseña" required>
+          </div>
+          <p class="auth-error" data-auth-error aria-live="polite">
+          </p>
+          <button class="btn btn-primary" type="submit">Entrar <i class="bi bi-arrow-right"></i></button>
+        </form>
+        <p class="auth-switch">
+          ¿Aún no tienes cuenta? <a href="registro.html">Crear cuenta</a>
+        </p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

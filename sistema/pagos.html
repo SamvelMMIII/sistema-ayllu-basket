@@ -1,240 +1,446 @@
 <!doctype html>
-<html lang="es" data-bs-theme="light">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagos | Ayllu Basket</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="../css/estilos.css" />
-</head>
-
-<body>
-  <div class="d-flex">
-    <aside class="sidebar d-flex flex-column p-3">
-      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom border-light border-opacity-10">
-        <img class="sidebar-logo" src="../assets/ayllu-basket-logo.jpg" alt="Ayllu Basket" />
-        <span class="sidebar-brand-text">AYLLU <b>BASKET</b></span>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Pagos | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/pagos.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="home.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">
+          Gestión del club
+        </p>
+        <nav class="nav-list">
+          <a class="nav-link" href="home.html" aria-label="Inicio"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link" href="jugadores.html" aria-label="Jugadores"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link" href="categorias.html" aria-label="Categorías"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link" href="calendario.html" aria-label="Calendario"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link active" href="pagos.html" aria-label="Pagos"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link" href="usuarios.html" aria-label="Usuarios"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="acceso.html" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Tesorería del club</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">
+                Gestión del club / Pagos
+              </p>
+              <h1>
+                Mensualidades y pagos
+              </h1>
+              <p>
+                Revisa los pagos recibidos, identifica cuotas pendientes y registra abonos.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-light" onclick="window.print()"><i class="bi bi-download"></i> Exportar reporte</button><button class="btn btn-primary" data-open-modal="payment-modal"><i class="bi bi-plus-lg"></i> Registrar pago</button>
+            </div>
+          </section>
+          <section class="stat-grid">
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Recaudado en noviembre</span><span class="stat-icon"><i class="bi bi-cash-stack"></i></span>
+              </div>
+              <div class="stat-value" data-raised>
+                $5,49 M
+              </div>
+              <div class="stat-foot">
+                122 cuotas pagadas
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Cuotas pendientes</span><span class="stat-icon"><i class="bi bi-exclamation-circle"></i></span>
+              </div>
+              <div class="stat-value" data-pending>
+                18
+              </div>
+              <div class="stat-foot">
+                De 140 jugadores activos
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Porcentaje de pago</span><span class="stat-icon"><i class="bi bi-pie-chart"></i></span>
+              </div>
+              <div class="stat-value" data-paid-rate>
+                87%
+              </div>
+              <div class="stat-foot">
+                Meta mensual del club
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Cuota mensual referencial</span><span class="stat-icon"><i class="bi bi-receipt"></i></span>
+              </div>
+              <div class="stat-value">
+                $45.000
+              </div>
+              <div class="stat-foot">
+                Por jugador · noviembre 2026
+              </div>
+            </article>
+          </section>
+          <div class="grid-2">
+            <section class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Seguimiento de cuotas
+                    </h2>
+                    <p class="card-subtitle">
+                      Noviembre 2026 · vence el día 10
+                    </p>
+                  </div>
+                  <button class="btn btn-light btn-sm" onclick="window.print()"><i class="bi bi-download"></i> Descargar</button>
+                </div>
+                <div class="toolbar">
+                  <span class="toolbar-count">Registros de noviembre</span>
+                  <div class="filters">
+                    <label class="search"><i class="bi bi-search"></i><input class="field" type="search" placeholder="Buscar jugador" data-filter-search="payments-table"></label><select class="field" data-filter-select="payments-table"><option value="">Todos los estados</option><option>Pendiente</option><option>Pagado</option></select>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table id="payments-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          Jugador / Apoderado
+                        </th>
+                        <th>
+                          Categoría
+                        </th>
+                        <th>
+                          Monto
+                        </th>
+                        <th>
+                          Estado
+                        </th>
+                        <th>
+                          Fecha de pago
+                        </th>
+                        <th>
+                          Medio
+                        </th>
+                        <th>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-status="Pendiente">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">ML</span><span><span class="player-name">Matías López</span><br><span class="muted">Carolina López</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          U11 Mixto
+                        </td>
+                        <td>
+                          $45.000
+                        </td>
+                        <td>
+                          <span class="badge badge-yellow payment-badge">Pendiente</span>
+                        </td>
+                        <td class="payment-date">
+                          —
+                        </td>
+                        <td class="payment-method">
+                          —
+                        </td>
+                        <td>
+                          <button class="btn btn-primary btn-sm" data-pay="Matías López"><i class="bi bi-check2"></i> Registrar</button>
+                        </td>
+                      </tr>
+                      <tr data-status="Pendiente">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">TH</span><span><span class="player-name">Tomás Herrera</span><br><span class="muted">Jorge Herrera</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          U15 Varones
+                        </td>
+                        <td>
+                          $45.000
+                        </td>
+                        <td>
+                          <span class="badge badge-yellow payment-badge">Pendiente</span>
+                        </td>
+                        <td class="payment-date">
+                          —
+                        </td>
+                        <td class="payment-method">
+                          —
+                        </td>
+                        <td>
+                          <button class="btn btn-primary btn-sm" data-pay="Tomás Herrera"><i class="bi bi-check2"></i> Registrar</button>
+                        </td>
+                      </tr>
+                      <tr data-status="Pendiente">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">CD</span><span><span class="player-name">Catalina Díaz</span><br><span class="muted">Rosa Díaz</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          U15 Damas
+                        </td>
+                        <td>
+                          $45.000
+                        </td>
+                        <td>
+                          <span class="badge badge-yellow payment-badge">Pendiente</span>
+                        </td>
+                        <td class="payment-date">
+                          —
+                        </td>
+                        <td class="payment-method">
+                          —
+                        </td>
+                        <td>
+                          <button class="btn btn-primary btn-sm" data-pay="Catalina Díaz"><i class="bi bi-check2"></i> Registrar</button>
+                        </td>
+                      </tr>
+                      <tr data-status="Pagado">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">SR</span><span><span class="player-name">Sofía Rojas</span><br><span class="muted">María Rojas</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          U11 Mixto
+                        </td>
+                        <td>
+                          $45.000
+                        </td>
+                        <td>
+                          <span class="badge badge-green payment-badge">Pagado</span>
+                        </td>
+                        <td class="payment-date">
+                          03 nov
+                        </td>
+                        <td class="payment-method">
+                          Transferencia
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Pago registrado"><i class="bi bi-check2-circle"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-status="Pagado">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">AV</span><span><span class="player-name">Agustina Vera</span><br><span class="muted">Claudia Vera</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          U13 Damas
+                        </td>
+                        <td>
+                          $45.000
+                        </td>
+                        <td>
+                          <span class="badge badge-green payment-badge">Pagado</span>
+                        </td>
+                        <td class="payment-date">
+                          01 nov
+                        </td>
+                        <td class="payment-method">
+                          Débito
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Pago registrado"><i class="bi bi-check2-circle"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-status="Pagado">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">DR</span><span><span class="player-name">Diego Ramírez</span><br><span class="muted">Pedro Ramírez</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          U13 Varones
+                        </td>
+                        <td>
+                          $45.000
+                        </td>
+                        <td>
+                          <span class="badge badge-green payment-badge">Pagado</span>
+                        </td>
+                        <td class="payment-date">
+                          05 nov
+                        </td>
+                        <td class="payment-method">
+                          Efectivo
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Pago registrado"><i class="bi bi-check2-circle"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-filter" id="payments-empty">
+                    No encontramos pagos con esos filtros.
+                  </div>
+                </div>
+              </article>
+            </section>
+            <aside class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Avance de recaudación
+                    </h2>
+                    <p class="card-subtitle">
+                      Mensualidades del mes
+                    </p>
+                  </div>
+                  <span class="badge badge-blue">Noviembre</span>
+                </div>
+                <div class="card-body">
+                  <div class="payment-legend">
+                    <span>Recibido</span><strong>$5.490.000</strong>
+                  </div>
+                  <div class="payment-progress">
+                    <span></span>
+                  </div>
+                  <div class="payment-legend">
+                    <span>122 de 140 pagos</span><span>87%</span>
+                  </div>
+                  <div class="category-metrics" style="justify-content:space-between;margin-bottom:0">
+                    <div>
+                      <strong>$810.000</strong><small>Por recaudar</small>
+                    </div>
+                    <div>
+                      <strong>$6.300.000</strong><small>Meta mensual</small>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Pagos por medio
+                    </h2>
+                    <p class="card-subtitle">
+                      Distribución de registros
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body month-bars">
+                  <div class="bar-line">
+                    <span>Transferencia</span>
+                    <div class="bar-track">
+                      <span style="width:100%"></span>
+                    </div>
+                    <strong>64</strong>
+                  </div>
+                  <div class="bar-line">
+                    <span>Débito</span>
+                    <div class="bar-track">
+                      <span style="width:48%;background:var(--orange)"></span>
+                    </div>
+                    <strong>31</strong>
+                  </div>
+                  <div class="bar-line">
+                    <span>Efectivo</span>
+                    <div class="bar-track">
+                      <span style="width:31%;background:#718b79"></span>
+                    </div>
+                    <strong>20</strong>
+                  </div>
+                  <div class="bar-line">
+                    <span>Crédito</span>
+                    <div class="bar-track">
+                      <span style="width:11%;background:#8299b2"></span>
+                    </div>
+                    <strong>7</strong>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Próximo vencimiento
+                    </h2>
+                    <p class="card-subtitle">
+                      Mensualidad de noviembre
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="activity">
+                    <span class="activity-icon"><i class="bi bi-calendar2-week"></i></span>
+                    <div class="activity-copy">
+                      <strong>Martes 10 de noviembre</strong><small>Envía avisos antes del vencimiento</small>
+                    </div>
+                  </div>
+                  <a class="link" href="jugadores.html">Ver directorio de jugadores <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </article>
+            </aside>
+          </div>
+        </main>
       </div>
-
-      <p class="text-uppercase text-white-50 small mb-2 ps-2" style="font-size:10px; letter-spacing:.15em;">Menú</p>
-      <ul class="nav flex-column gap-1 mb-auto">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="home.html">
-            <i class="bi bi-grid-1x2-fill"></i> Inicio
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="jugadores.html">
-            <i class="bi bi-people-fill"></i> Jugadores
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="categorias.html">
-            <i class="bi bi-collection-fill"></i> Categorías
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="calendario.html">
-            <i class="bi bi-calendar-event-fill"></i> Calendario
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active rounded-2 d-flex align-items-center gap-2" href="pagos.html">
-            <i class="bi bi-wallet2"></i> Pagos
-          </a>
-        </li>
-      </ul>
-
-      <ul class="nav flex-column gap-1">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="../acceso.html">
-            <i class="bi bi-box-arrow-left"></i> Cerrar sesión
-          </a>
-        </li>
-      </ul>
-
-      <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top border-light border-opacity-10">
-        <span class="user-avatar-circle rounded-circle d-flex align-items-center justify-content-center">MR</span>
-        <span class="text-white small">
-          <strong class="d-block" style="font-size:12px;">María Rojas</strong>
-        </span>
-      </div>
-    </aside>
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom border-cream">
-        <h5 class="mb-0 fw-bold">Pagos</h5>
-        <div class="d-flex gap-2"></div>
-      </header>
-
-      <main class="p-4">
-        <div class="mb-4">
-          <h3 class="fw-bold">Estado de pagos</h3>
-          <p class="text-muted small">Cuotas mensuales de los jugadores inscritos.</p>
-        </div>
-
-        <!-- Resumen -->
-        <div class="row g-3 mb-4">
-          <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body text-center">
-                <i class="bi bi-check-circle fs-3 text-success"></i>
-                <h4 class="fw-bold mt-2 mb-0">9</h4>
-                <small class="text-muted">Al día</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body text-center">
-                <i class="bi bi-exclamation-circle fs-3 text-warning"></i>
-                <h4 class="fw-bold mt-2 mb-0">3</h4>
-                <small class="text-muted">Pendientes</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body text-center">
-                <i class="bi bi-cash-stack fs-3 text-secondary"></i>
-                <h4 class="fw-bold mt-2 mb-0">$540.000</h4>
-                <small class="text-muted">Recaudado este mes</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tabla de pagos -->
-        <div class="card border-0 shadow-sm">
-          <div class="card-header bg-white">
-            <h6 class="mb-0 fw-bold"><i class="bi bi-wallet2 text-secondary me-2"></i>Detalle de cuotas — Octubre 2026</h6>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-borderless mb-0 align-middle small">
-              <thead class="table-light">
-                <tr>
-                  <th>Jugador</th>
-                  <th>Categoría</th>
-                  <th>Apoderado</th>
-                  <th>Monto</th>
-                  <th>Estado</th>
-                  <th>Fecha pago</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-semibold">Sofía Rojas</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>María Rojas</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>03 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Matías López</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Carolina López</td>
-                  <td>$45.000</td>
-                  <td><span class="text-warning">● Pendiente</span></td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Agustina Vera</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Claudia Vera</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>01 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Diego Ramírez</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Pedro Ramírez</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>05 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Valentina Muñoz</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Andrea Muñoz</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>02 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Tomás Herrera</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Jorge Herrera</td>
-                  <td>$45.000</td>
-                  <td><span class="text-warning">● Pendiente</span></td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Isidora Campos</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Marcela Campos</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>04 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Benjamín Soto</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Luis Soto</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>06 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Catalina Díaz</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Rosa Díaz</td>
-                  <td>$45.000</td>
-                  <td><span class="text-warning">● Pendiente</span></td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Martín Figueroa</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Elena Figueroa</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>07 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Renata Pizarro</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Felipe Pizarro</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>03 Oct</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Lucas Morales</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Gabriela Morales</td>
-                  <td>$45.000</td>
-                  <td><span class="text-success">● Pagado</span></td>
-                  <td>08 Oct</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </main>
     </div>
-
-  </div>
-</body>
-
+    <dialog class="modal" id="payment-modal">
+      <form data-form-action="payment">
+        <div class="modal-head">
+          <div>
+            <h2>
+              Registrar pago
+            </h2>
+            <p>
+              Asocia el pago a un jugador y a su mensualidad.
+            </p>
+          </div>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-field full">
+              <label>Jugador</label><input class="field" name="player" id="payment-player" required placeholder="Nombre del jugador">
+            </div>
+            <div class="form-field">
+              <label>Mes</label><input class="field" name="month" value="Noviembre 2026" readonly>
+            </div>
+            <div class="form-field">
+              <label>Monto</label><input class="field" name="amount" type="number" value="45000" min="1" required>
+            </div>
+            <div class="form-field full">
+              <label>Medio de pago</label><select class="field" name="method" required><option>Transferencia</option><option>Efectivo</option><option>Débito</option><option>Crédito</option></select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Confirmar pago</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite">
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
