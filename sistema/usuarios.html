@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Usuarios y permisos | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/usuarios.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="home.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">
+          Gestión del club
+        </p>
+        <nav class="nav-list">
+          <a class="nav-link" href="home.html" aria-label="Inicio"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link" href="jugadores.html" aria-label="Jugadores"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link" href="categorias.html" aria-label="Categorías"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link" href="calendario.html" aria-label="Calendario"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link" href="pagos.html" aria-label="Pagos"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link active" href="usuarios.html" aria-label="Usuarios"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="acceso.html" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Usuarios y permisos</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">
+                Administración / Usuarios
+              </p>
+              <h1>
+                Usuarios y permisos
+              </h1>
+              <p>
+                Asigna perfiles de acceso según las tareas de cada integrante del club.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" data-open-modal="user-modal"><i class="bi bi-person-plus"></i> Agregar usuario</button>
+            </div>
+          </section>
+          <section class="stat-grid">
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Perfiles asignados</span><span class="stat-icon"><i class="bi bi-people"></i></span>
+              </div>
+              <div class="stat-value" data-user-count>
+                5
+              </div>
+              <div class="stat-foot">
+                Accesos por función
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Perfiles disponibles</span><span class="stat-icon"><i class="bi bi-person-badge"></i></span>
+              </div>
+              <div class="stat-value">
+                6
+              </div>
+              <div class="stat-foot">
+                Administrador y roles del club
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Entrenadores</span><span class="stat-icon"><i class="bi bi-clipboard2-check"></i></span>
+              </div>
+              <div class="stat-value">
+                1
+              </div>
+              <div class="stat-foot">
+                Con acceso al sistema
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Cuentas de apoderado</span><span class="stat-icon"><i class="bi bi-person-heart"></i></span>
+              </div>
+              <div class="stat-value">
+                0
+              </div>
+              <div class="stat-foot">
+                Por vincular a jugadores
+              </div>
+            </article>
+          </section>
+          <div class="grid-2">
+            <section class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Directorio de accesos
+                    </h2>
+                    <p class="card-subtitle">
+                      Personas con acceso a las áreas administrativas y deportivas
+                    </p>
+                  </div>
+                </div>
+                <div class="toolbar">
+                  <span class="toolbar-count"><strong id="users-visible-count">5</strong> perfiles de acceso</span>
+                  <div class="filters">
+                    <label class="search"><i class="bi bi-search"></i><input class="field" type="search" placeholder="Buscar nombre o correo" data-filter-search="users-table"></label><select class="field" data-filter-select="users-table"><option value="">Todos los roles</option><option>Administrador</option><option>Presidente</option><option>Tesorera</option><option>Secretaria</option><option>Entrenador</option><option>Apoderado</option></select>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table id="users-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          Usuario
+                        </th>
+                        <th>
+                          Rol
+                        </th>
+                        <th>
+                          Área o categoría
+                        </th>
+                        <th>
+                          Estado
+                        </th>
+                        <th>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-role="Administrador">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">MR</span><span><span class="player-name">María Rojas</span><br><span class="muted">maria.rojas@ayllubasket.cl</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="badge badge-wine">Administrador</span>
+                        </td>
+                        <td>
+                          Acceso completo
+                        </td>
+                        <td>
+                          <span class="badge badge-green">Activo</span>
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="El administrador principal no se puede editar aquí" disabled><i class="bi bi-pencil"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-role="Presidente">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">CR</span><span><span class="player-name">Claudia Reyes</span><br><span class="muted">claudia.reyes@ayllubasket.cl</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="badge badge-blue">Presidente</span>
+                        </td>
+                        <td>
+                          Resumen del club
+                        </td>
+                        <td>
+                          <span class="badge badge-green">Activo</span>
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Cambiar rol" data-edit-user><i class="bi bi-pencil"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-role="Tesorera">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">PC</span><span><span class="player-name">Paula Contreras</span><br><span class="muted">paula.contreras@ayllubasket.cl</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="badge badge-yellow">Tesorera</span>
+                        </td>
+                        <td>
+                          Pagos y mensualidades
+                        </td>
+                        <td>
+                          <span class="badge badge-green">Activo</span>
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Cambiar rol" data-edit-user><i class="bi bi-pencil"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-role="Secretaria">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">JS</span><span><span class="player-name">Javiera Silva</span><br><span class="muted">javiera.silva@ayllubasket.cl</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="badge badge-neutral">Secretaria</span>
+                        </td>
+                        <td>
+                          Inscripciones y agenda
+                        </td>
+                        <td>
+                          <span class="badge badge-green">Activo</span>
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Cambiar rol" data-edit-user><i class="bi bi-pencil"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-role="Entrenador">
+                        <td>
+                          <div class="player-cell">
+                            <span class="player-avatar">CM</span><span><span class="player-name">Camila Muñoz</span><br><span class="muted">camila.munoz@ayllubasket.cl</span></span>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="badge badge-green">Entrenador</span>
+                        </td>
+                        <td>
+                          U11 Mixto
+                        </td>
+                        <td>
+                          <span class="badge badge-green">Activo</span>
+                        </td>
+                        <td>
+                          <button class="icon-btn" title="Cambiar rol" data-edit-user><i class="bi bi-pencil"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-filter" id="users-empty">
+                    No hay usuarios con esos filtros.
+                  </div>
+                </div>
+              </article>
+              <div class="notice">
+                <i class="bi bi-shield-lock notice-icon"></i>
+                <p>
+                  <strong>Acceso por función</strong>Asigna el menor nivel de acceso que cada persona necesita para cumplir sus tareas.
+                </p>
+              </div>
+            </section>
+            <aside class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Perfiles del sistema
+                    </h2>
+                    <p class="card-subtitle">
+                      Permisos por responsabilidad
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body role-list">
+                  <div class="role-item">
+                    <span class="role-icon"><i class="bi bi-gear"></i></span>
+                    <div>
+                      <strong>Administrador</strong><small>Usuarios, permisos y configuración</small>
+                    </div>
+                  </div>
+                  <div class="role-item">
+                    <span class="role-icon"><i class="bi bi-bank"></i></span>
+                    <div>
+                      <strong>Presidente</strong><small>Indicadores e información del club</small>
+                    </div>
+                  </div>
+                  <div class="role-item">
+                    <span class="role-icon"><i class="bi bi-wallet2"></i></span>
+                    <div>
+                      <strong>Tesorera</strong><small>Cuotas, pagos y morosidad</small>
+                    </div>
+                  </div>
+                  <div class="role-item">
+                    <span class="role-icon"><i class="bi bi-folder2-open"></i></span>
+                    <div>
+                      <strong>Secretaria</strong><small>Inscripciones y datos de jugadores</small>
+                    </div>
+                  </div>
+                  <div class="role-item">
+                    <span class="role-icon"><i class="bi bi-clipboard2-check"></i></span>
+                    <div>
+                      <strong>Entrenador</strong><small>Sus categorías, actividades y asistencia</small>
+                    </div>
+                  </div>
+                  <div class="role-item">
+                    <span class="role-icon"><i class="bi bi-person-heart"></i></span>
+                    <div>
+                      <strong>Apoderado</strong><small>Información de su jugador asociado</small>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </aside>
+          </div>
+        </main>
+      </div>
+    </div>
+    <dialog class="modal" id="user-modal">
+      <form data-form-action="user">
+        <div class="modal-head">
+          <div>
+            <h2>
+              Agregar usuario
+            </h2>
+            <p>
+              Elige un perfil y el acceso que necesita.
+            </p>
+          </div>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="user-name">Nombre completo</label><input class="field" id="user-name" name="name" required placeholder="Nombre y apellido">
+            </div>
+            <div class="form-field">
+              <label for="user-email">Correo</label><input class="field" id="user-email" name="email" type="email" required placeholder="nombre@correo.cl">
+            </div>
+            <div class="form-field">
+              <label for="user-role">Rol</label><select class="field" id="user-role" name="role"><option>Presidente</option><option>Tesorera</option><option>Secretaria</option><option>Entrenador</option><option>Apoderado</option></select>
+            </div>
+            <div class="form-field">
+              <label for="user-scope">Categoría asignada</label><select class="field" id="user-scope" name="scope"><option>No aplica</option><option>U11 Mixto</option><option>U13 Damas</option><option>U13 Varones</option><option>U15 Damas</option><option>U15 Varones</option><option>U17 Damas</option><option>U17 Varones</option><option>U21 / Sub-21</option><option>U23 Varones</option><option>Varones TC</option><option>Máx 35+ Varones</option><option>Todas</option></select>
+            </div>
+            <div class="form-field full" data-player-association style="display:none">
+              <label for="user-player">Jugador asociado</label><select class="field" id="user-player" name="player"><option value="">Seleccionar jugador</option><option>Sofía Rojas</option><option>Matías López</option><option>Agustina Vera</option><option>Diego Ramírez</option></select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar usuario</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite">
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+.category-card {
+  padding: 19px;
+}
+
+.category-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.category-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--orange-soft);
+  color: var(--wine);
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.category-card h2 {
+  margin: 15px 0 2px;
+  font: 800 19px 'Manrope', sans-serif;
+}
+
+.category-age {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-note {
+  margin-top: 14px;
+  color: #948980;
+  font-size: 12px;
+}
+
+.category-section {
+  margin: 24px 0;
+}
+
+.section-heading {
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font: 800 18px 'Manrope', sans-serif;
+}
+
+.section-heading p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.category-detail {
+  min-height: 40px;
+  margin: 10px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.category-info {
+  display: grid;
+  gap: 7px;
+  margin: 14px 0;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.category-info span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-info i {
+  color: var(--wine);
+}

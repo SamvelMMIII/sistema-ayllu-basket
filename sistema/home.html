@@ -1,202 +1,240 @@
 <!doctype html>
-<html lang="es" data-bs-theme="light">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio | Ayllu Basket</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="../css/estilos.css" />
-</head>
-
-<body>
-  <div class="d-flex">
-    <aside class="sidebar d-flex flex-column p-3">
-      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom border-light border-opacity-10">
-        <img class="sidebar-logo" src="../assets/ayllu-basket-logo.jpg" alt="Ayllu Basket" />
-        <span class="sidebar-brand-text">AYLLU <b>BASKET</b></span>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Inicio | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="home.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">
+          Gestión del club
+        </p>
+        <nav class="nav-list">
+          <a class="nav-link active" href="home.html" aria-label="Inicio"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link" href="jugadores.html" aria-label="Jugadores"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link" href="categorias.html" aria-label="Categorías"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link" href="calendario.html" aria-label="Calendario"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link" href="pagos.html" aria-label="Pagos"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link" href="usuarios.html" aria-label="Usuarios"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="acceso.html" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Panel administrativo</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">
+                Domingo, 8 de noviembre de 2026
+              </p>
+              <h1>
+                Hola, <span data-user-first-name>María</span>
+              </h1>
+              <p>
+                Resumen del club y tareas pendientes.
+              </p>
+            </div>
+            <div class="actions">
+              <a class="btn btn-light" href="calendario.html"><i class="bi bi-calendar-plus"></i> Agendar actividad</a><a class="btn btn-primary" href="jugadores.html"><i class="bi bi-person-plus"></i> Inscribir jugador</a>
+            </div>
+          </section>
+          <section class="stat-grid" aria-label="Resumen del club">
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Jugadores activos</span><span class="stat-icon"><i class="bi bi-people"></i></span>
+              </div>
+              <div class="stat-value">
+                140
+              </div>
+              <div class="stat-foot">
+                Total aproximado del club
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Categorías configuradas</span><span class="stat-icon"><i class="bi bi-trophy"></i></span>
+              </div>
+              <div class="stat-value">
+                11
+              </div>
+              <div class="stat-foot">
+                Formativas, desarrollo, adultas y seniors
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Cuotas al día</span><span class="stat-icon"><i class="bi bi-check2-circle"></i></span>
+              </div>
+              <div class="stat-value">
+                87%
+              </div>
+              <div class="stat-foot">
+                <strong>122 de 140</strong> jugadores
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Recaudado en noviembre</span><span class="stat-icon"><i class="bi bi-cash-stack"></i></span>
+              </div>
+              <div class="stat-value">
+                $5,49 M
+              </div>
+              <div class="stat-foot">
+                Cuotas registradas este mes
+              </div>
+            </article>
+          </section>
+          <section class="grid-2">
+            <div class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Pendientes que requieren seguimiento
+                    </h2>
+                    <p class="card-subtitle">
+                      Prioridades administrativas
+                    </p>
+                  </div>
+                  <a class="link" href="pagos.html">Ver pagos <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="card-body stack">
+                  <div class="notice">
+                    <i class="bi bi-exclamation-circle notice-icon"></i>
+                    <p>
+                      <strong>18 mensualidades por revisar</strong>La cuota de noviembre vence el 10 de noviembre. Revisa los casos pendientes y envía un recordatorio.
+                    </p>
+                  </div>
+                  <div class="notice">
+                    <i class="bi bi-calendar2-event notice-icon"></i>
+                    <p>
+                      <strong>Partido U13 Varones el sábado 14</strong>Falta confirmar la nómina de jugadores para el encuentro frente a Club Vecino.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Actividad reciente
+                    </h2>
+                    <p class="card-subtitle">
+                      Últimos movimientos en el club
+                    </p>
+                  </div>
+                  <a class="link" href="jugadores.html">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="card-body">
+                  <div class="activity-list">
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-person-check"></i></span>
+                      <div class="activity-copy">
+                        <strong>Inscripción completada · Emilia Soto</strong><small>U11 Mixto · Registrada por Secretaría · Hoy, 10:24</small>
+                      </div>
+                      <span class="badge badge-blue">Nueva</span>
+                    </div>
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-wallet2"></i></span>
+                      <div class="activity-copy">
+                        <strong>Pago registrado · Diego Ramírez</strong><small>Cuota de noviembre · Transferencia · Ayer</small>
+                      </div>
+                      <span class="badge badge-green">Pagado</span>
+                    </div>
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-calendar-check"></i></span>
+                      <div class="activity-copy">
+                        <strong>Asistencia cerrada · Entrenamiento U15 Varones</strong><small>18 de 20 jugadores presentes · 5 nov</small>
+                      </div>
+                      <span class="badge badge-neutral">Deportivo</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Próximas actividades
+                    </h2>
+                    <p class="card-subtitle">
+                      Agenda del 9 al 15 de noviembre
+                    </p>
+                  </div>
+                  <a class="link" href="calendario.html">Abrir agenda <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="card-body">
+                  <div class="activity-list">
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-dribbble"></i></span>
+                      <div class="activity-copy">
+                        <strong>Partido amistoso · U13 Varones</strong><small>Sáb, 14 nov · 10:00 · Club Vecino</small>
+                      </div>
+                    </div>
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-basket2"></i></span>
+                      <div class="activity-copy">
+                        <strong>Entrenamiento · U11 Mixto</strong><small>Lun, 9 nov · 16:00 · Cancha 1</small>
+                      </div>
+                    </div>
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-basket2"></i></span>
+                      <div class="activity-copy">
+                        <strong>Entrenamiento · U15 Varones</strong><small>Mar, 10 nov · 18:30 · Cancha 2</small>
+                      </div>
+                    </div>
+                    <div class="activity">
+                      <span class="activity-icon"><i class="bi bi-people"></i></span>
+                      <div class="activity-copy">
+                        <strong>Reunión de apoderados</strong><small>Mié, 11 nov · 19:30 · Sala del club</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Estado de mensualidades
+                    </h2>
+                    <p class="card-subtitle">
+                      Noviembre · 2026
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="payment-legend">
+                    <span>Recaudado</span><strong>$5.490.000</strong>
+                  </div>
+                  <div class="payment-progress">
+                    <span></span>
+                  </div>
+                  <div class="payment-legend">
+                    <span>122 pagos registrados</span><span>Meta: $6.300.000</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
       </div>
-
-      <p class="text-uppercase text-white-50 small mb-2 ps-2" style="font-size:10px; letter-spacing:.15em;">Menú</p>
-      <ul class="nav flex-column gap-1 mb-auto">
-        <li class="nav-item">
-          <a class="nav-link active rounded-2 d-flex align-items-center gap-2" href="home.html">
-            <i class="bi bi-grid-1x2-fill"></i> Inicio
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="jugadores.html">
-            <i class="bi bi-people-fill"></i> Jugadores
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="categorias.html">
-            <i class="bi bi-collection-fill"></i> Categorías
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="calendario.html">
-            <i class="bi bi-calendar-event-fill"></i> Calendario
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="pagos.html">
-            <i class="bi bi-wallet2"></i> Pagos
-          </a>
-        </li>
-
-      </ul>
-
-      <ul class="nav flex-column gap-1">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="acceso.html">
-            <i class="bi bi-box-arrow-left"></i> Cerrar sesión
-          </a>
-        </li>
-      </ul>
-
-      <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top border-light border-opacity-10">
-        <span class="user-avatar-circle rounded-circle d-flex align-items-center justify-content-center">MR</span>
-        <span class="text-white small">
-          <strong class="d-block" style="font-size:12px;">María Rojas</strong>
-        </span>
-      </div>
-    </aside>
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom border-cream">
-        <h5 class="mb-0 fw-bold ">Inicio</h5>
-        <div class="d-flex gap-2"></div>
-      </header>
-
-      <main class="p-4">
-        <div class="mb-4">
-          <h3 class="fw-bold"> <strong>Bienvenida, María</strong></h3>
-          <p class="text-muted small">Resumen de la actividad del club.</p>
-        </div>
-
-        <div class="row g-3 mb-4">
-          <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body text-center">
-                <i class="bi bi-people-fill fs-3 text-secondary"></i>
-                <h4 class="fw-bold mt-2 mb-0">24</h4>
-                <small class="text-muted">Jugadores</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body text-center">
-                <i class="bi bi-collection-fill fs-3 text-secondary"></i>
-                <h4 class="fw-bold mt-2 mb-0">4</h4>
-                <small class="text-muted">Categorías</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body text-center">
-                <i class="bi bi-wallet2 fs-3 text-secondary"></i>
-                <h4 class="fw-bold mt-2 mb-0">87%</h4>
-                <small class="text-muted">Pagos al día</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tabla jugadores y eventos -->
-        <div class="row g-3">
-
-          <!-- Jugadores -->
-          <div class="col-lg-8">
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h6 class="mb-0 fw-bold"><i class="bi bi-people-fill text-secondary me-2"></i>Jugadores recientes</h6>
-                <a href="#" class="small text-decoration-none text-dark">Ver todos →</a>
-              </div>
-              <div class="table-responsive">
-                <table class="table table-borderless mb-0 align-middle small">
-                  <thead class="table-light">
-                    <tr>
-                      <th>Jugador</th>
-                      <th>Categoría</th>
-                      <th>Pago</th>
-                      <th>Asistencia</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="fw-semibold">Sofía Rojas</td>
-                      <td><span class="badge bg-dark">Sub-12</span></td>
-                      <td><span class="text-success">● Al día</span></td>
-                      <td>92%</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Matías López</td>
-                      <td><span class="badge bg-secondary">Sub-10</span></td>
-                      <td><span class="text-warning">● Pendiente</span></td>
-                      <td>85%</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Agustina Vera</td>
-                      <td><span class="badge bg-success">Sub-14</span></td>
-                      <td><span class="text-success">● Al día</span></td>
-                      <td>96%</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Diego Ramírez</td>
-                      <td><span class="badge bg-dark">Sub-12</span></td>
-                      <td><span class="text-success">● Al día</span></td>
-                      <td>88%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- Próximos eventos -->
-          <div class="col-lg-4">
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h6 class="mb-0 fw-bold"><i class="bi bi-calendar-event-fill text-secondary me-2"></i>Próximos eventos
-                </h6>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <strong class="d-block small">Entrenamiento Sub-12</strong>
-                  <small class="text-muted">28 Oct · 18:00 · Cancha 2</small>
-                </li>
-                <li class="list-group-item">
-                  <strong class="d-block small">Partido amistoso</strong>
-                  <small class="text-muted">30 Oct · 10:00 · Club Vecino</small>
-                </li>
-                <li class="list-group-item">
-                  <strong class="d-block small">Reunión apoderados</strong>
-                  <small class="text-muted">02 Nov · 19:30 · Sala club</small>
-                </li>
-                <li class="list-group-item">
-                  <strong class="d-block small">Torneo zonal Sub-14</strong>
-                  <small class="text-muted">05 Nov · 09:00 · Polideportivo</small>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-      </main>
     </div>
-
-  </div>
-</body>
-
+  </body>
 </html>

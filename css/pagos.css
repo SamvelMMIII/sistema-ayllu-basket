@@ -1,0 +1,54 @@
+#payments-table {
+  min-width: 960px;
+}
+
+.category-metrics {
+  display: flex;
+  gap: 22px;
+  margin: 17px 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.category-metrics strong {
+  display: block;
+  font-size: 15px;
+}
+
+.category-metrics small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.month-bars {
+  display: grid;
+  gap: 14px;
+}
+
+.bar-line {
+  display: grid;
+  grid-template-columns: 90px 1fr 38px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.bar-track {
+  height: 8px;
+  border-radius: 10px;
+  background: #f0ebe6;
+  overflow: hidden;
+}
+
+.bar-track span {
+  display: block;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--wine);
+}
+
+.bar-line strong {
+  text-align: right;
+  font-size: 13px;
+}

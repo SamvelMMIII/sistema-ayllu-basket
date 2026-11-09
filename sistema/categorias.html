@@ -1,204 +1,380 @@
 <!doctype html>
-<html lang="es" data-bs-theme="light">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Categorías | Ayllu Basket</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="../css/estilos.css" />
-</head>
-
-<body>
-  <div class="d-flex">
-    <aside class="sidebar d-flex flex-column p-3">
-      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom border-light border-opacity-10">
-        <img class="sidebar-logo" src="../assets/ayllu-basket-logo.jpg" alt="Ayllu Basket" />
-        <span class="sidebar-brand-text">AYLLU <b>BASKET</b></span>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Categorías | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/categorias.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="home.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">
+          Gestión del club
+        </p>
+        <nav class="nav-list">
+          <a class="nav-link" href="home.html" aria-label="Inicio"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link" href="jugadores.html" aria-label="Jugadores"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link active" href="categorias.html" aria-label="Categorías"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link" href="calendario.html" aria-label="Calendario"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link" href="pagos.html" aria-label="Pagos"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link" href="usuarios.html" aria-label="Usuarios"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="acceso.html" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Equipos y categorías</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">
+                Administración / Categorías
+              </p>
+              <h1>
+                Categorías del club
+              </h1>
+              <p>
+                Divisiones formativas, competitivas y seniors.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" data-open-modal="category-modal"><i class="bi bi-plus-lg"></i> Agregar categoría</button>
+            </div>
+          </section>
+          <section class="stat-grid">
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Categorías configuradas</span><span class="stat-icon"><i class="bi bi-trophy"></i></span>
+              </div>
+              <div class="stat-value" data-category-count>
+                11
+              </div>
+              <div class="stat-foot">
+                Temporada 2026
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Jugadores del club</span><span class="stat-icon"><i class="bi bi-people"></i></span>
+              </div>
+              <div class="stat-value">
+                140 aprox.
+              </div>
+              <div class="stat-foot">
+                Total informado por el club
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Divisiones formativas</span><span class="stat-icon"><i class="bi bi-basket2"></i></span>
+              </div>
+              <div class="stat-value">
+                7
+              </div>
+              <div class="stat-foot">
+                U11, U13, U15 y U17
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Desarrollo, adultos y seniors</span><span class="stat-icon"><i class="bi bi-award"></i></span>
+              </div>
+              <div class="stat-value">
+                4
+              </div>
+              <div class="stat-foot">
+                U21, U23, Todo Competidor y Max
+              </div>
+            </article>
+          </section>
+          <div class="category-section" data-category-group="Mini y formativas">
+            <div class="section-heading">
+              <h2>
+                Mini y formativas
+              </h2>
+              <p>
+                Participación recreativa y desarrollo por edad
+              </p>
+            </div>
+            <section class="grid-3" id="category-grid">
+              <article class="card category-card" data-category-name="U11 Mixto">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-balloon"></i></span><span class="badge badge-blue">Mixto</span>
+                </div>
+                <h2>
+                  U11
+                </h2>
+                <div class="category-age">
+                  Mini · Formativas
+                </div>
+                <p class="category-detail">
+                  Mixto · Recreativo
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U11%20Mixto">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+            </section>
+          </div>
+          <div class="category-section" data-category-group="Menores y juveniles">
+            <div class="section-heading">
+              <h2>
+                Menores y juveniles
+              </h2>
+              <p>
+                Divisiones separadas para varones y damas
+              </p>
+            </div>
+            <section class="grid-3">
+              <article class="card category-card" data-category-name="U13 Damas">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-lightning-charge"></i></span><span class="badge badge-neutral">Damas</span>
+                </div>
+                <h2>
+                  U13
+                </h2>
+                <div class="category-age">
+                  Menores · Juveniles
+                </div>
+                <p class="category-detail">
+                  Competencia por edad
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U13%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="U13 Varones">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-lightning-charge"></i></span><span class="badge badge-blue">Varones</span>
+                </div>
+                <h2>
+                  U13
+                </h2>
+                <div class="category-age">
+                  Menores · Juveniles
+                </div>
+                <p class="category-detail">
+                  Competencia por edad
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U13%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="U15 Damas">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-lightning-charge"></i></span><span class="badge badge-neutral">Damas</span>
+                </div>
+                <h2>
+                  U15
+                </h2>
+                <div class="category-age">
+                  Menores · Juveniles
+                </div>
+                <p class="category-detail">
+                  Competencia por edad
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U15%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="U15 Varones">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-lightning-charge"></i></span><span class="badge badge-blue">Varones</span>
+                </div>
+                <h2>
+                  U15
+                </h2>
+                <div class="category-age">
+                  Menores · Juveniles
+                </div>
+                <p class="category-detail">
+                  Competencia por edad
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U15%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="U17 Damas">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-award"></i></span><span class="badge badge-neutral">Damas</span>
+                </div>
+                <h2>
+                  U17
+                </h2>
+                <div class="category-age">
+                  Menores · Juveniles
+                </div>
+                <p class="category-detail">
+                  Competencia por edad
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U17%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="U17 Varones">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-award"></i></span><span class="badge badge-blue">Varones</span>
+                </div>
+                <h2>
+                  U17
+                </h2>
+                <div class="category-age">
+                  Menores · Juveniles
+                </div>
+                <p class="category-detail">
+                  Competencia por edad
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U17%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+            </section>
+          </div>
+          <div class="category-section" data-category-group="Desarrollo y categorías adultas">
+            <div class="section-heading">
+              <h2>
+                Desarrollo y categorías adultas
+              </h2>
+              <p>
+                Competencias nacionales, locales y seniors
+              </p>
+            </div>
+            <section class="grid-3">
+              <article class="card category-card" data-category-name="U21 / Sub-21">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-trophy"></i></span><span class="badge badge-green">Desarrollo</span>
+                </div>
+                <h2>
+                  U21 / Sub-21
+                </h2>
+                <div class="category-age">
+                  Juvenil avanzado
+                </div>
+                <p class="category-detail">
+                  Liga de Desarrollo FEBACHILE · Competencia nacional
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U21%20%2F%20Sub-21">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="U23 Varones">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-trophy"></i></span><span class="badge badge-blue">Varones</span>
+                </div>
+                <h2>
+                  U23
+                </h2>
+                <div class="category-age">
+                  Juvenil avanzado
+                </div>
+                <p class="category-detail">
+                  Liga local ARBA Arica
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=U23%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="Varones TC">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-basket2"></i></span><span class="badge badge-blue">Varones</span>
+                </div>
+                <h2>
+                  Todo Competidor
+                </h2>
+                <div class="category-age">
+                  Adultos
+                </div>
+                <p class="category-detail">
+                  Categoría adulta
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=Varones%20TC">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+              <article class="card category-card" data-category-name="Máx 35+ Varones">
+                <div class="category-top">
+                  <span class="category-mark"><i class="bi bi-award"></i></span><span class="badge badge-blue">Varones</span>
+                </div>
+                <h2>
+                  Máx 35+
+                </h2>
+                <div class="category-age">
+                  Seniors
+                </div>
+                <p class="category-detail">
+                  Categoría 35 años y más
+                </p>
+                <div class="category-info">
+                  <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
+                </div>
+                <a class="link" href="jugadores.html?categoria=Máx%2035%2B%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+              </article>
+            </section>
+          </div>
+          <p class="footer-note">
+            La cantidad de jugadores, entrenadores, horarios y cupos se completa con los datos del club.
+          </p>
+        </main>
       </div>
-
-      <p class="text-uppercase text-white-50 small mb-2 ps-2" style="font-size:10px; letter-spacing:.15em;">Menú</p>
-      <ul class="nav flex-column gap-1 mb-auto">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="home.html">
-            <i class="bi bi-grid-1x2-fill"></i> Inicio
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="jugadores.html">
-            <i class="bi bi-people-fill"></i> Jugadores
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active rounded-2 d-flex align-items-center gap-2" href="categorias.html">
-            <i class="bi bi-collection-fill"></i> Categorías
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="calendario.html">
-            <i class="bi bi-calendar-event-fill"></i> Calendario
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="pagos.html">
-            <i class="bi bi-wallet2"></i> Pagos
-          </a>
-        </li>
-      </ul>
-
-      <ul class="nav flex-column gap-1">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="../acceso.html">
-            <i class="bi bi-box-arrow-left"></i> Cerrar sesión
-          </a>
-        </li>
-      </ul>
-
-      <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top border-light border-opacity-10">
-        <span class="user-avatar-circle rounded-circle d-flex align-items-center justify-content-center">MR</span>
-        <span class="text-white small">
-          <strong class="d-block" style="font-size:12px;">María Rojas</strong>
-        </span>
-      </div>
-    </aside>
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom border-cream">
-        <h5 class="mb-0 fw-bold">Categorías</h5>
-        <div class="d-flex gap-2"></div>
-      </header>
-
-      <main class="p-4">
-        <div class="mb-4">
-          <h3 class="fw-bold">Categorías del club</h3>
-          <p class="text-muted small">Organización por rango de edad de los jugadores.</p>
-        </div>
-
-        <div class="row g-3 mb-4">
-          <!-- Sub-8 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h5 class="fw-bold mb-1">Sub-8</h5>
-                <p class="text-muted small mb-3">6 a 8 años</p>
-                <ul class="list-unstyled small mb-0">
-                  <li class="mb-2"><i class="bi bi-people text-secondary me-2"></i>5 jugadores</li>
-                  <li class="mb-2"><i class="bi bi-person-badge text-secondary me-2"></i>Prof. Ana Torres</li>
-                  <li><i class="bi bi-clock text-secondary me-2"></i>Lun y Mié · 16:00</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Sub-10 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h5 class="fw-bold mb-1">Sub-10</h5>
-                <p class="text-muted small mb-3">8 a 10 años</p>
-                <ul class="list-unstyled small mb-0">
-                  <li class="mb-2"><i class="bi bi-people text-secondary me-2"></i>7 jugadores</li>
-                  <li class="mb-2"><i class="bi bi-person-badge text-secondary me-2"></i>Prof. Carlos Vega</li>
-                  <li><i class="bi bi-clock text-secondary me-2"></i>Mar y Jue · 17:00</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Sub-12 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h5 class="fw-bold mb-1">Sub-12</h5>
-                <p class="text-muted small mb-3">10 a 12 años</p>
-                <ul class="list-unstyled small mb-0">
-                  <li class="mb-2"><i class="bi bi-people text-secondary me-2"></i>6 jugadores</li>
-                  <li class="mb-2"><i class="bi bi-person-badge text-secondary me-2"></i>Prof. Mario Salazar</li>
-                  <li><i class="bi bi-clock text-secondary me-2"></i>Lun y Mié · 18:00</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Sub-14 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body">
-                <h5 class="fw-bold mb-1">Sub-14</h5>
-                <p class="text-muted small mb-3">12 a 14 años</p>
-                <ul class="list-unstyled small mb-0">
-                  <li class="mb-2"><i class="bi bi-people text-secondary me-2"></i>6 jugadores</li>
-                  <li class="mb-2"><i class="bi bi-person-badge text-secondary me-2"></i>Prof. Laura Méndez</li>
-                  <li><i class="bi bi-clock text-secondary me-2"></i>Mar y Jue · 18:30</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tabla resumen -->
-        <div class="card border-0 shadow-sm">
-          <div class="card-header bg-white">
-            <h6 class="mb-0 fw-bold"><i class="bi bi-table text-secondary me-2"></i>Resumen por categoría</h6>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-borderless mb-0 align-middle small">
-              <thead class="table-light">
-                <tr>
-                  <th>Categoría</th>
-                  <th>Rango edad</th>
-                  <th>Jugadores</th>
-                  <th>Profesor</th>
-                  <th>Días</th>
-                  <th>Horario</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-semibold">Sub-8</td>
-                  <td>6 – 8 años</td>
-                  <td>5</td>
-                  <td>Ana Torres</td>
-                  <td>Lun / Mié</td>
-                  <td>16:00</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Sub-10</td>
-                  <td>8 – 10 años</td>
-                  <td>7</td>
-                  <td>Carlos Vega</td>
-                  <td>Mar / Jue</td>
-                  <td>17:00</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Sub-12</td>
-                  <td>10 – 12 años</td>
-                  <td>6</td>
-                  <td>Mario Salazar</td>
-                  <td>Lun / Mié</td>
-                  <td>18:00</td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Sub-14</td>
-                  <td>12 – 14 años</td>
-                  <td>6</td>
-                  <td>Laura Méndez</td>
-                  <td>Mar / Jue</td>
-                  <td>18:30</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </main>
     </div>
-
-  </div>
-</body>
-
+    <dialog class="modal" id="category-modal">
+      <form data-form-action="category">
+        <div class="modal-head">
+          <div>
+            <h2>
+              Agregar categoría
+            </h2>
+            <p>
+              Registra una nueva división.
+            </p>
+          </div>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-field">
+              <label>Nombre</label><input class="field" name="name" required placeholder="Ej. U19 Damas">
+            </div>
+            <div class="form-field">
+              <label>Etapa</label><select class="field" name="group" required><option>Mini y formativas</option><option>Menores y juveniles</option><option>Desarrollo y categorías adultas</option></select>
+            </div>
+            <div class="form-field">
+              <label>Competencia</label><input class="field" name="competition" placeholder="Liga o nivel">
+            </div>
+            <div class="form-field">
+              <label>Responsable</label><input class="field" name="coach" placeholder="Nombre del entrenador">
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar categoría</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite">
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

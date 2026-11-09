@@ -1,0 +1,39 @@
+#users-table {
+  min-width: 900px;
+}
+
+.role-list {
+  display: grid;
+  gap: 15px;
+}
+
+.role-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.role-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--orange-soft);
+  color: var(--wine);
+}
+
+.role-item strong {
+  display: block;
+  font-size: 13px;
+}
+
+.role-item small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge-wine {
+  background: #f4e8e8;
+  color: var(--wine);
+}

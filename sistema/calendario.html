@@ -1,240 +1,406 @@
 <!doctype html>
-<html lang="es" data-bs-theme="light">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendario | Ayllu Basket</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="../css/estilos.css" />
-</head>
-
-<body>
-  <div class="d-flex">
-    <aside class="sidebar d-flex flex-column p-3">
-      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom border-light border-opacity-10">
-        <img class="sidebar-logo" src="../assets/ayllu-basket-logo.jpg" alt="Ayllu Basket" />
-        <span class="sidebar-brand-text">AYLLU <b>BASKET</b></span>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Calendario | Ayllu Basket
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/calendario.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="home.html"><img src="../assets/ayllu-basket-logo.jpg" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">
+          Gestión del club
+        </p>
+        <nav class="nav-list">
+          <a class="nav-link" href="home.html" aria-label="Inicio"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link" href="jugadores.html" aria-label="Jugadores"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link" href="categorias.html" aria-label="Categorías"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link active" href="calendario.html" aria-label="Calendario"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link" href="pagos.html" aria-label="Pagos"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link" href="usuarios.html" aria-label="Usuarios"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="acceso.html" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Agenda deportiva</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">
+                Gestión del club / Calendario
+              </p>
+              <h1>
+                Agenda deportiva
+              </h1>
+              <p>
+                Coordina entrenamientos, partidos y actividades para cada categoría.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" data-open-modal="event-modal"><i class="bi bi-calendar-plus"></i> Agendar actividad</button>
+            </div>
+          </section>
+          <section class="stat-grid">
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Actividades esta semana</span><span class="stat-icon"><i class="bi bi-calendar-week"></i></span>
+              </div>
+              <div class="stat-value" data-event-count>
+                10
+              </div>
+              <div class="stat-foot">
+                En todas las categorías
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Entrenamientos</span><span class="stat-icon"><i class="bi bi-basket2"></i></span>
+              </div>
+              <div class="stat-value">
+                7
+              </div>
+              <div class="stat-foot">
+                Planificados esta semana
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Partidos próximos</span><span class="stat-icon"><i class="bi bi-trophy"></i></span>
+              </div>
+              <div class="stat-value">
+                1
+              </div>
+              <div class="stat-foot">
+                Próximos 14 días
+              </div>
+            </article>
+            <article class="card stat-card">
+              <div class="stat-top">
+                <span>Asistencia por cerrar</span><span class="stat-icon"><i class="bi bi-clipboard-check"></i></span>
+              </div>
+              <div class="stat-value">
+                1
+              </div>
+              <div class="stat-foot">
+                Entrenamiento U11 Mixto · ayer
+              </div>
+            </article>
+          </section>
+          <section class="grid-2">
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2 class="card-title">
+                    Semana del 9 al 15 de noviembre
+                  </h2>
+                  <p class="card-subtitle">
+                    Selecciona un día para revisar su programación
+                  </p>
+                </div>
+              </div>
+              <div class="week-strip">
+                <button class="day-chip" data-day-filter="lun"><span>Lun</span><strong>09</strong></button><button class="day-chip" data-day-filter="mar"><span>Mar</span><strong>10</strong></button><button class="day-chip" data-day-filter="mie"><span>Mié</span><strong>11</strong></button><button class="day-chip" data-day-filter="jue"><span>Jue</span><strong>12</strong></button><button class="day-chip" data-day-filter="vie"><span>Vie</span><strong>13</strong></button><button class="day-chip selected" data-day-filter="sab"><span>Sáb</span><strong>14</strong></button><button class="day-chip" data-day-filter="dom"><span>Dom</span><strong>15</strong></button>
+              </div>
+              <div class="toolbar">
+                <span class="toolbar-count" id="agenda-label">Actividades programadas</span><select class="field" id="event-category-filter"><option value="">Todas las categorías</option><option>U11 Mixto</option><option>U13 Damas</option><option>U13 Varones</option><option>U15 Damas</option><option>U15 Varones</option><option>U17 Damas</option><option>U17 Varones</option><option>U21 / Sub-21</option><option>U23 Varones</option><option>Varones TC</option><option>Máx 35+ Varones</option></select>
+              </div>
+              <div class="agenda" id="event-list">
+                <article class="event-card" data-event-day="lun" data-category="U11 Mixto" data-type="Entrenamiento">
+                  <div class="event-time">
+                    16:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Entrenamiento técnico
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 1 · Camila Muñoz
+                    </div>
+                  </div>
+                  <span class="event-type">U11 Mixto</span>
+                </article>
+                <article class="event-card" data-event-day="lun" data-category="U13 Varones" data-type="Entrenamiento">
+                  <div class="event-time">
+                    18:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Entrenamiento de equipo
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 2 · Felipe Rojas
+                    </div>
+                  </div>
+                  <span class="event-type">U13 Varones</span>
+                </article>
+                <article class="event-card" data-event-day="mar" data-category="U11 Mixto" data-type="Entrenamiento">
+                  <div class="event-time">
+                    17:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Fundamentos y coordinación
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 1 · Javier Pérez
+                    </div>
+                  </div>
+                  <span class="event-type">U11 Mixto</span>
+                </article>
+                <article class="event-card" data-event-day="mar" data-category="U15 Varones" data-type="Entrenamiento">
+                  <div class="event-time">
+                    18:30
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Preparación física
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 2 · Andrés López
+                    </div>
+                  </div>
+                  <span class="event-type">U15 Varones</span>
+                </article>
+                <article class="event-card" data-event-day="mie" data-category="Todas">
+                  <div class="event-time">
+                    19:30
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Reunión de apoderados
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Sala del club · Secretaría
+                    </div>
+                  </div>
+                  <span class="event-type">Todas</span>
+                </article>
+                <article class="event-card" data-event-day="jue" data-category="U11 Mixto" data-type="Entrenamiento">
+                  <div class="event-time">
+                    17:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Entrenamiento de equipo
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 1 · Javier Pérez
+                    </div>
+                  </div>
+                  <span class="event-type">U11 Mixto</span>
+                </article>
+                <article class="event-card" data-event-day="jue" data-category="U15 Varones" data-type="Entrenamiento">
+                  <div class="event-time">
+                    18:30
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Sistemas de juego
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 2 · Andrés López
+                    </div>
+                  </div>
+                  <span class="event-type">U15 Varones</span>
+                </article>
+                <article class="event-card" data-event-day="vie" data-category="U15 Varones" data-type="Entrenamiento">
+                  <div class="event-time">
+                    18:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Entrenamiento de tiro
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 2 · Andrés López
+                    </div>
+                  </div>
+                  <span class="event-type">U15 Varones</span>
+                </article>
+                <article class="event-card" data-event-day="sab" data-category="U13 Varones">
+                  <div class="event-time">
+                    10:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Partido amistoso vs. Club Vecino
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Gimnasio Club Vecino · Encuentro
+                    </div>
+                  </div>
+                  <span class="event-type partido">Partido · U13 Varones</span>
+                </article>
+                <article class="event-card" data-event-day="sab" data-category="U11 Mixto">
+                  <div class="event-time">
+                    12:00
+                  </div>
+                  <div>
+                    <div class="event-title">
+                      Clínica de habilidades
+                    </div>
+                    <div class="event-meta">
+                      <i class="bi bi-geo-alt"></i> Cancha 1 · Javier Pérez
+                    </div>
+                  </div>
+                  <span class="event-type">U11 Mixto</span>
+                </article>
+              </div>
+              <div class="empty-filter" id="events-empty">
+                No hay actividades para los filtros seleccionados.
+              </div>
+            </article>
+            <aside class="stack">
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Próximo partido
+                    </h2>
+                    <p class="card-subtitle">
+                      Sábado 14 de noviembre · 10:00
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:center">
+                    <div>
+                      <span class="category-mark" style="margin:auto"><i class="bi bi-shield"></i></span><strong style="display:block;margin-top:8px">Ayllu Basket</strong>
+                    </div>
+                    <span style="font:800 18px Manrope;color:var(--muted)">VS</span>
+                    <div>
+                      <span class="category-mark" style="margin:auto;background:var(--blue-soft);color:var(--blue)"><i class="bi bi-shield"></i></span><strong style="display:block;margin-top:8px">Club Vecino</strong>
+                    </div>
+                  </div>
+                  <div class="notice" style="margin-top:18px">
+                    <i class="bi bi-info-circle notice-icon"></i>
+                    <p>
+                      <strong>Categoría U13 Varones</strong>Gimnasio Club Vecino · Llegada sugerida: 09:15
+                    </p>
+                  </div>
+                  <a class="btn btn-light" style="width:100%;margin-top:14px" href="jugadores.html">Revisar nómina</a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-head">
+                  <div>
+                    <h2 class="card-title">
+                      Notas para el equipo
+                    </h2>
+                    <p class="card-subtitle">
+                      Recordatorios de coordinación
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body activity-list">
+                  <div class="activity">
+                    <span class="activity-icon"><i class="bi bi-megaphone"></i></span>
+                    <div class="activity-copy">
+                      <strong>Confirmar transporte</strong><small>Partido U13 Varones · antes del jueves</small>
+                    </div>
+                  </div>
+                  <div class="activity">
+                    <span class="activity-icon"><i class="bi bi-clipboard2-check"></i></span>
+                    <div class="activity-copy">
+                      <strong>Cerrar asistencia</strong><small>U11 Mixto · entrenamiento del viernes</small>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </aside>
+          </section>
+        </main>
       </div>
-
-      <p class="text-uppercase text-white-50 small mb-2 ps-2" style="font-size:10px; letter-spacing:.15em;">Menú</p>
-      <ul class="nav flex-column gap-1 mb-auto">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="home.html">
-            <i class="bi bi-grid-1x2-fill"></i> Inicio
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="jugadores.html">
-            <i class="bi bi-people-fill"></i> Jugadores
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="categorias.html">
-            <i class="bi bi-collection-fill"></i> Categorías
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active rounded-2 d-flex align-items-center gap-2" href="calendario.html">
-            <i class="bi bi-calendar-event-fill"></i> Calendario
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="pagos.html">
-            <i class="bi bi-wallet2"></i> Pagos
-          </a>
-        </li>
-      </ul>
-
-      <ul class="nav flex-column gap-1">
-        <li class="nav-item">
-          <a class="nav-link rounded-2 d-flex align-items-center gap-2" href="../acceso.html">
-            <i class="bi bi-box-arrow-left"></i> Cerrar sesión
-          </a>
-        </li>
-      </ul>
-
-      <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top border-light border-opacity-10">
-        <span class="user-avatar-circle rounded-circle d-flex align-items-center justify-content-center">MR</span>
-        <span class="text-white small">
-          <strong class="d-block" style="font-size:12px;">María Rojas</strong>
-        </span>
-      </div>
-    </aside>
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom border-cream">
-        <h5 class="mb-0 fw-bold">Calendario</h5>
-        <div class="d-flex gap-2"></div>
-      </header>
-
-      <main class="p-4">
-        <div class="mb-4">
-          <h3 class="fw-bold">Calendario de actividades</h3>
-          <p class="text-muted small">Entrenamientos, partidos y eventos del club — Octubre / Noviembre 2026.</p>
-        </div>
-
-        <!-- Semana actual -->
-        <div class="card border-0 shadow-sm mb-3">
-          <div class="card-header bg-white">
-            <h6 class="mb-0 fw-bold"><i class="bi bi-calendar-week text-secondary me-2"></i>Esta semana</h6>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-borderless mb-0 align-middle small">
-              <thead class="table-light">
-                <tr>
-                  <th>Fecha</th>
-                  <th>Hora</th>
-                  <th>Actividad</th>
-                  <th>Categoría</th>
-                  <th>Lugar</th>
-                  <th>Tipo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-semibold">Lun 26 Oct</td>
-                  <td>16:00</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-secondary">Sub-8</span></td>
-                  <td>Cancha 1</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Lun 26 Oct</td>
-                  <td>18:00</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Cancha 2</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Mar 27 Oct</td>
-                  <td>17:00</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Cancha 1</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Mar 27 Oct</td>
-                  <td>18:30</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Cancha 2</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Mié 28 Oct</td>
-                  <td>16:00</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-secondary">Sub-8</span></td>
-                  <td>Cancha 1</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Mié 28 Oct</td>
-                  <td>18:00</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Cancha 2</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Jue 29 Oct</td>
-                  <td>17:00</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Cancha 1</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Jue 29 Oct</td>
-                  <td>18:30</td>
-                  <td>Entrenamiento</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Cancha 2</td>
-                  <td><span class="badge bg-dark">Entreno</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Próximos eventos -->
-        <div class="card border-0 shadow-sm">
-          <div class="card-header bg-white">
-            <h6 class="mb-0 fw-bold"><i class="bi bi-calendar-event text-secondary me-2"></i>Próximos eventos</h6>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-borderless mb-0 align-middle small">
-              <thead class="table-light">
-                <tr>
-                  <th>Fecha</th>
-                  <th>Hora</th>
-                  <th>Actividad</th>
-                  <th>Categoría</th>
-                  <th>Lugar</th>
-                  <th>Tipo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-semibold">Sáb 30 Oct</td>
-                  <td>10:00</td>
-                  <td>Partido amistoso vs Club Vecino</td>
-                  <td><span class="badge bg-dark">Sub-12</span></td>
-                  <td>Club Vecino</td>
-                  <td><span class="badge bg-success">Partido</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Dom 02 Nov</td>
-                  <td>19:30</td>
-                  <td>Reunión de apoderados</td>
-                  <td>Todas</td>
-                  <td>Sala club</td>
-                  <td><span class="badge bg-secondary">Reunión</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Sáb 05 Nov</td>
-                  <td>09:00</td>
-                  <td>Torneo zonal</td>
-                  <td><span class="badge bg-success">Sub-14</span></td>
-                  <td>Polideportivo</td>
-                  <td><span class="badge bg-success">Torneo</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Sáb 12 Nov</td>
-                  <td>10:00</td>
-                  <td>Partido amistoso vs Halcones</td>
-                  <td><span class="badge bg-secondary">Sub-10</span></td>
-                  <td>Cancha local</td>
-                  <td><span class="badge bg-success">Partido</span></td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold">Sáb 19 Nov</td>
-                  <td>15:00</td>
-                  <td>Cierre de temporada</td>
-                  <td>Todas</td>
-                  <td>Club Ayllu</td>
-                  <td><span class="badge bg-secondary">Evento</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </main>
     </div>
-
-  </div>
-</body>
-
+    <dialog class="modal" id="event-modal">
+      <form data-form-action="event">
+        <div class="modal-head">
+          <div>
+            <h2>
+              Agendar actividad
+            </h2>
+            <p>
+              Registra una actividad y asígnala a una categoría.
+            </p>
+          </div>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-field full">
+              <label>Nombre de la actividad</label><input class="field" name="title" required placeholder="Ej. Entrenamiento técnico">
+            </div>
+            <div class="form-field">
+              <label>Tipo</label><select class="field" name="type"><option>Entrenamiento</option><option>Partido</option><option>Reunión</option><option>Evento</option></select>
+            </div>
+            <div class="form-field">
+              <label>Categoría</label><select class="field" name="category"><option>U11 Mixto</option><option>U13 Damas</option><option>U13 Varones</option><option>U15 Damas</option><option>U15 Varones</option><option>U17 Damas</option><option>U17 Varones</option><option>U21 / Sub-21</option><option>U23 Varones</option><option>Varones TC</option><option>Máx 35+ Varones</option><option>Todas</option></select>
+            </div>
+            <div class="form-field">
+              <label>Fecha</label><input class="field" name="date" type="date" required>
+            </div>
+            <div class="form-field">
+              <label>Hora</label><input class="field" name="time" type="time" required>
+            </div>
+            <div class="form-field full">
+              <label>Lugar</label><input class="field" name="place" required placeholder="Cancha o recinto">
+            </div>
+            <div class="form-field">
+              <label>Objetivo</label><input class="field" name="objective" placeholder="Ej. Mejorar pase y recepción">
+            </div>
+            <div class="form-field full">
+              <label>Descripción</label><textarea name="description" placeholder="Contenido y ejercicios de la actividad"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar actividad</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog class="modal" id="attendance-modal">
+      <form data-form-action="attendance">
+        <div class="modal-head">
+          <div>
+            <h2>
+              Registrar asistencia
+            </h2>
+            <p data-attendance-title>
+              Entrenamiento
+            </p>
+          </div>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="notice">
+            <i class="bi bi-people notice-icon"></i>
+            <p>
+              <strong>Categoría <span data-attendance-category></span></strong>Marca a quienes asistieron.
+            </p>
+          </div>
+          <div class="attendance-list" id="attendance-roster">
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar asistencia</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite">
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
