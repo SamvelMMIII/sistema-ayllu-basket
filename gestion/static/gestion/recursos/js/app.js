@@ -28,7 +28,7 @@
       }
       const name = form.dataset.authForm === 'register' ? data.name : data.email.split('@')[0];
       try { sessionStorage.setItem('aylluUserName', name.trim()); } catch {}
-      window.location.href = 'home.html';
+      window.location.href = document.body.dataset.homeUrl;
     });
   });
 
