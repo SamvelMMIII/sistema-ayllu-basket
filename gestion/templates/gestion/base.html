@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Ayllu Basket{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'gestion/recursos/css/estilos.css' %}">
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="{% url 'gestion:home' %}"><img src="{% static 'gestion/recursos/img/ayllu-basket-logo.jpg' %}" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">Gestión del club</p>
+        <nav class="nav-list">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'gestion:home' %}"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'jugadores' or request.resolver_match.url_name == 'registrar_jugador' %}active{% endif %}" href="{% url 'gestion:jugadores' %}"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'apoderados' or request.resolver_match.url_name == 'registrar_apoderado' %}active{% endif %}" href="{% url 'gestion:apoderados' %}"><i class="bi bi-person-heart"></i><span>Apoderados</span></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'categorias' %}active{% endif %}" href="{% url 'gestion:categorias' %}"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'calendario' %}active{% endif %}" href="{% url 'gestion:calendario' %}"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'pagos' %}active{% endif %}" href="{% url 'gestion:pagos' %}"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'usuarios' %}active{% endif %}" href="{% url 'gestion:usuarios' %}"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="{% url 'gestion:acceso' %}" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">{% block topbar_title %}Panel{% endblock %}</span>
+          <span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          {% block content %}{% endblock %}
+        </main>
+      </div>
+    </div>
+    {% block modals %}{% endblock %}
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="{% static 'gestion/recursos/js/app.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>
