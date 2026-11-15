@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Jugador
-from .forms import JugadorForm
+from .models import Jugador, Apoderado
+from .forms import JugadorForm, ApoderadoForm
 
 def acceso(request):
     return render(request, "gestion/acceso.html")
@@ -19,6 +19,21 @@ def registrar_jugador(request):
         form = JugadorForm()
     
     return render(request, "gestion/registrar_jugador.html", {'form': form})
+
+def apoderados(request):
+    lista = Apoderado.objects.all().order_by('nombre_completo')
+    return render(request, "gestion/apoderados.html", {'apoderados': lista})
+
+
+def registrar_apoderado(request):
+    if request.method == 'POST':
+        form = ApoderadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('gestion:apoderados')
+    else:
+        form = ApoderadoForm()
+    return render(request, "gestion/registrar_apoderado.html", {'form': form})
 
 def home(request):
     return render(request, "gestion/home.html")

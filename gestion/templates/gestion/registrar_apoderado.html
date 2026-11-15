@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrar Apoderado | Ayllu Basket</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'gestion/recursos/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="{% url 'gestion:home' %}"><img src="{% static 'gestion/recursos/img/ayllu-basket-logo.jpg' %}" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <p class="nav-label">Gestión del club</p>
+        <nav class="nav-list">
+          <a class="nav-link" href="{% url 'gestion:home' %}"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+          <a class="nav-link" href="{% url 'gestion:jugadores' %}"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+          <a class="nav-link" href="{% url 'gestion:categorias' %}"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
+          <a class="nav-link" href="{% url 'gestion:calendario' %}"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
+          <a class="nav-link" href="{% url 'gestion:pagos' %}"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+          <a class="nav-link" href="{% url 'gestion:usuarios' %}"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="{% url 'gestion:acceso' %}" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <div class="profile">
+            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+          </div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span class="topbar-title">Apoderados</span><span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+        </header>
+        <main class="main">
+          <section class="page-heading">
+            <div>
+              <p class="eyebrow">Gestión del club / Apoderados / Nuevo</p>
+              <h1>Registrar Apoderado</h1>
+              <p>Ingresa los datos de contacto del apoderado.</p>
+            </div>
+            <div class="actions">
+              <a href="{% url 'gestion:apoderados' %}" class="btn btn-light"><i class="bi bi-arrow-left"></i> Volver</a>
+            </div>
+          </section>
+
+          <article class="card" style="max-width: 700px; margin: 0 auto;">
+            <div class="card-head">
+              <div>
+                <h2 class="card-title">Datos del apoderado</h2>
+                <p class="card-subtitle">Completa todos los campos</p>
+              </div>
+            </div>
+            <div class="card-body" style="padding: 24px;">
+              <form method="post">
+                {% csrf_token %}
+                <div class="form-grid">
+                  <div class="form-field full">
+                    <label>{{ form.nombre_completo.label }}</label>
+                    {{ form.nombre_completo }}
+                  </div>
+                  <div class="form-field">
+                    <label>{{ form.rut_apoderado.label }}</label>
+                    {{ form.rut_apoderado }}
+                  </div>
+                  <div class="form-field">
+                    <label>{{ form.telefono.label }}</label>
+                    {{ form.telefono }}
+                  </div>
+                  <div class="form-field full">
+                    <label>{{ form.correo.label }}</label>
+                    {{ form.correo }}
+                  </div>
+                </div>
+                <div class="modal-actions" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 10px;">
+                  <a href="{% url 'gestion:apoderados' %}" class="btn btn-light">Cancelar</a>
+                  <button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar apoderado</button>
+                </div>
+              </form>
+            </div>
+          </article>
+        </main>
+      </div>
+    </div>
+    <script src="{% static 'gestion/recursos/js/app.js' %}"></script>
+  </body>
+</html>
