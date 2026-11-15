@@ -51,7 +51,7 @@
               </p>
             </div>
             <div class="actions">
-              <button class="btn btn-primary" data-open-modal="player-modal"><i class="bi bi-person-plus"></i> Inscribir jugador</button>
+              <a href="{% url 'gestion:registrar_jugador' %}" class="btn btn-primary"><i class="bi bi-person-plus"></i> Inscribir jugador</a>
             </div>
           </section>
           <section class="stat-grid">
@@ -59,12 +59,8 @@
               <div class="stat-top">
                 <span>Inscritos esta temporada</span><span class="stat-icon"><i class="bi bi-people"></i></span>
               </div>
-              <div class="stat-value" data-total-players>
-                140
-              </div>
-              <div class="stat-foot">
-                Inscripciones activas
-              </div>
+              <div class="stat-value" data-total-players>{{ jugadores|length }}</div>
+              <div class="stat-foot">Inscripciones activas</div>
             </article>
             <article class="card stat-card">
               <div class="stat-top">
@@ -113,138 +109,61 @@
               <button class="btn btn-light btn-sm" onclick="window.print()"><i class="bi bi-download"></i> Exportar</button>
             </div>
             <div class="toolbar">
-              <span class="toolbar-count"><strong id="visible-count">4</strong> resultados</span>
+              <span class="toolbar-count"><strong id="visible-count">{{ jugadores|length }}</strong> resultados</span>
               <div class="filters">
-                <label class="search"><i class="bi bi-search"></i><input class="field" type="search" placeholder="Buscar jugador o apoderado" data-filter-search="players-table"></label><select class="field" data-filter-select="players-table"><option value="">Todas las categorías</option><option>U11 Mixto</option><option>U13 Damas</option><option>U13 Varones</option><option>U15 Damas</option><option>U15 Varones</option><option>U17 Damas</option><option>U17 Varones</option><option>U21 / Sub-21</option><option>U23 Varones</option><option>Varones TC</option><option>Máx 35+ Varones</option></select>
+                <label class="search"><i class="bi bi-search"></i><input class="field" type="search" placeholder="Buscar jugador o apoderado" data-filter-search="players-table"></label>
+                <select class="field" data-filter-select="players-table">
+                  <option value="">Todas las categorías</option>
+                  <option>U11 Mixto</option><option>U13 Damas</option><option>U13 Varones</option><option>U15 Damas</option>
+                </select>
               </div>
             </div>
             <div class="table-wrap">
               <table id="players-table">
                 <thead>
                   <tr>
-                    <th>
-                      Jugador
-                    </th>
-                    <th>
-                      Categoría
-                    </th>
-                    <th>
-                      Apoderado
-                    </th>
-                    <th>
-                      Asistencia
-                    </th>
-                    <th>
-                      Mensualidad
-                    </th>
-                    <th>
-                      Inscripción
-                    </th>
-                    <th>
-                    </th>
+                    <th>Jugador</th>
+                    <th>Categoría</th>
+                    <th>Apoderado</th>
+                    <th>Asistencia</th>
+                    <th>Mensualidad</th>
+                    <th>Inscripción</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr data-category="U11 Mixto">
+                  {% for jugador in jugadores %}
+                  <tr data-category="{{ jugador.categoria.nombre_categoria }}">
                     <td>
                       <div class="player-cell">
-                        <span class="player-avatar">SR</span><span><span class="player-name">Sofía Rojas</span><br><span class="muted">N.º 7 · 11 años</span></span>
+                        <span class="player-avatar">{{ jugador.nombre_completo|slice:":2"|upper }}</span>
+                        <span>
+                          <span class="player-name">{{ jugador.nombre_completo }}</span><br>
+                          <span class="muted">{{ jugador.rut_jugador }}</span>
+                        </span>
                       </div>
                     </td>
                     <td>
-                      <span class="badge badge-neutral">U11 Mixto</span>
+                      <span class="badge badge-neutral">{{ jugador.categoria.nombre_categoria }}</span>
                     </td>
                     <td>
-                      María Rojas<br><span class="muted">+56 9 6321 4400</span>
+                      {{ jugador.apoderado.nombre_completo }}<br>
+                      <span class="muted">{{ jugador.apoderado.telefono }}</span>
                     </td>
+                    <td>--</td>
+                    <td><span class="badge badge-green">Al día</span></td>
+                    <td><span class="badge badge-green">Completa</span></td>
                     <td>
-                      92%
-                    </td>
-                    <td>
-                      <span class="badge badge-green">Al día</span>
-                    </td>
-                    <td>
-                      <span class="badge badge-green">Completa</span>
-                    </td>
-                    <td>
-                      <button class="icon-btn" title="Ver ficha" data-player-detail="Sofía Rojas · U11 Mixto · Apoderada: María Rojas · Asistencia: 92%"><i class="bi bi-arrow-up-right"></i></button>
+                      <button class="icon-btn" title="Ver ficha" data-player-detail="{{ jugador.nombre_completo }}"><i class="bi bi-arrow-up-right"></i></button>
                     </td>
                   </tr>
-                  <tr data-category="U11 Mixto">
-                    <td>
-                      <div class="player-cell">
-                        <span class="player-avatar">ML</span><span><span class="player-name">Matías López</span><br><span class="muted">N.º 12 · 9 años</span></span>
-                      </div>
-                    </td>
-                    <td>
-                      <span class="badge badge-neutral">U11 Mixto</span>
-                    </td>
-                    <td>
-                      Carolina López<br><span class="muted">+56 9 7740 1822</span>
-                    </td>
-                    <td>
-                      85%
-                    </td>
-                    <td>
-                      <span class="badge badge-yellow">Pendiente</span>
-                    </td>
-                    <td>
-                      <span class="badge badge-green">Completa</span>
-                    </td>
-                    <td>
-                      <button class="icon-btn" title="Ver ficha" data-player-detail="Matías López · U11 Mixto · Apoderada: Carolina López · Asistencia: 85%"><i class="bi bi-arrow-up-right"></i></button>
+                  {% empty %}
+                  <tr>
+                    <td colspan="7" style="text-align: center; padding: 20px; color: #666;">
+                      No hay jugadores registrados en la base de datos aún.
                     </td>
                   </tr>
-                  <tr data-category="U13 Damas">
-                    <td>
-                      <div class="player-cell">
-                        <span class="player-avatar">AV</span><span><span class="player-name">Agustina Vera</span><br><span class="muted">N.º 3 · 13 años</span></span>
-                      </div>
-                    </td>
-                    <td>
-                      <span class="badge badge-neutral">U13 Damas</span>
-                    </td>
-                    <td>
-                      Claudia Vera<br><span class="muted">+56 9 6159 8331</span>
-                    </td>
-                    <td>
-                      96%
-                    </td>
-                    <td>
-                      <span class="badge badge-green">Al día</span>
-                    </td>
-                    <td>
-                      <span class="badge badge-green">Completa</span>
-                    </td>
-                    <td>
-                      <button class="icon-btn" title="Ver ficha" data-player-detail="Agustina Vera · U13 Damas · Apoderada: Claudia Vera · Asistencia: 96%"><i class="bi bi-arrow-up-right"></i></button>
-                    </td>
-                  </tr>
-                  <tr data-category="U13 Varones">
-                    <td>
-                      <div class="player-cell">
-                        <span class="player-avatar">DR</span><span><span class="player-name">Diego Ramírez</span><br><span class="muted">N.º 5 · 12 años</span></span>
-                      </div>
-                    </td>
-                    <td>
-                      <span class="badge badge-neutral">U13 Varones</span>
-                    </td>
-                    <td>
-                      Pedro Ramírez<br><span class="muted">+56 9 8300 2514</span>
-                    </td>
-                    <td>
-                      88%
-                    </td>
-                    <td>
-                      <span class="badge badge-green">Al día</span>
-                    </td>
-                    <td>
-                      <span class="badge badge-yellow">Por revisar</span>
-                    </td>
-                    <td>
-                      <button class="icon-btn" title="Ver ficha" data-player-detail="Diego Ramírez · U13 Varones · Apoderado: Pedro Ramírez · Asistencia: 88%"><i class="bi bi-arrow-up-right"></i></button>
-                    </td>
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
               <div class="empty-filter" id="players-empty">
@@ -255,51 +174,7 @@
         </main>
       </div>
     </div>
-    <dialog class="modal" id="player-modal">
-      <form data-form-action="player" data-season-year="2026">
-        <div class="modal-head">
-          <div>
-            <h2>
-              Nueva inscripción
-            </h2>
-            <p>
-              Registra al jugador y vincula a su apoderado.
-            </p>
-          </div>
-          <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="player-name">Nombre del jugador</label><input class="field" id="player-name" name="name" required placeholder="Nombre y apellido">
-            </div>
-            <div class="form-field">
-              <label for="player-birth">Fecha de nacimiento</label><input class="field" id="player-birth" name="birth" type="date" required>
-            </div>
-            <div class="form-field">
-              <label for="player-gender">División</label><select class="field" id="player-gender" name="gender"><option value="">Seleccionar si corresponde</option><option>Damas</option><option>Varones</option></select>
-            </div>
-            <div class="form-field">
-              <label for="player-category">Categoría asignada</label><input class="field" id="player-category" name="category" readonly required placeholder="Se asigna por año de nacimiento">
-            </div>
-            <p class="form-hint full" id="category-hint">
-              Ingresa la fecha de nacimiento para calcular la categoría.
-            </p>
-            <div class="form-field">
-              <label for="guardian-name">Nombre del apoderado</label><input class="field" id="guardian-name" name="guardian" required placeholder="Nombre y apellido">
-            </div>
-            <div class="form-field full">
-              <label for="guardian-phone">Teléfono de contacto</label><input class="field" id="guardian-phone" name="phone" type="tel" required placeholder="+56 9 1234 5678">
-            </div>
-          </div>
-        </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-light" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar inscripción</button>
-        </div>
-      </form>
-    </dialog>
-    <div class="toast" role="status" aria-live="polite">
-    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
     <script src="{% static 'gestion/recursos/js/app.js' %}"></script>
   </body>
 </html>
