@@ -1,16 +1,51 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Jugador, Apoderado, Categoria
+from .forms import JugadorForm, ApoderadoForm
 
 def acceso(request):
     return render(request, "gestion/acceso.html")
 
-def registro(request):
-    return render(request, "gestion/registro.html")
+def jugadores(request):
+    lista_jugadores = Jugador.objects.all().order_by('nombre_completo')
+    return render(request, "gestion/jugadores.html", {'jugadores': lista_jugadores})
+
+def registrar_jugador(request):
+    if request.method == 'POST':
+        form = JugadorForm(request.POST)
+        if form.is_valid():
+            jugador = form.save(commit=False)
+            anio = jugador.fecha_nacimiento.year
+            categoria = Categoria.objects.filter(
+                anio_inicio__lte=anio,
+                anio_fin__gte=anio
+            ).first()
+            if categoria:
+                jugador.categoria = categoria
+                jugador.save()
+                return redirect('gestion:jugadores')
+            form.add_error('fecha_nacimiento', 'No existe una categoria')
+    else:
+        form = JugadorForm()
+    return render(request, "gestion/registrar_jugador.html", {'form': form})
+
+def apoderados(request):
+    lista = Apoderado.objects.all().order_by('nombre_completo')
+    return render(request, "gestion/apoderados.html", {'apoderados': lista})
+
+
+def registrar_apoderado(request):
+    if request.method == 'POST':
+        form = ApoderadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('gestion:apoderados')
+    else:
+        form = ApoderadoForm()
+    return render(request, "gestion/registrar_apoderado.html", {'form': form})
 
 def home(request):
     return render(request, "gestion/home.html")
 
-def jugadores(request):
-    return render(request, "gestion/jugadores.html")
 
 def categorias(request):
     return render(request, "gestion/categorias.html")

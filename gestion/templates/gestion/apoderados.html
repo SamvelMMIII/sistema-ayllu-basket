@@ -1,0 +1,62 @@
+{% extends 'gestion/base.html' %}
+{% load static %}
+
+{% block title %}
+  Apoderados | Ayllu Basket
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}" />
+{% endblock %}
+
+{% block topbar_title %}
+  Apoderados
+{% endblock %}
+
+{% block content %}
+  <section class="page-heading">
+    <div>
+      <p class="eyebrow">Gestión del club / Apoderados</p>
+      <h1>Apoderados</h1>
+      <p>Directorio de contactos responsables de los jugadores.</p>
+    </div>
+    <div class="actions">
+      <a href="{% url 'gestion:registrar_apoderado' %}" class="btn btn-primary"><i class="bi bi-person-plus"></i> Nuevo apoderado</a>
+    </div>
+  </section>
+
+  <article class="card">
+    <div class="card-head">
+      <div>
+        <h2 class="card-title">Directorio de apoderados</h2>
+        <p class="card-subtitle">{{ apoderados|length }} registrados</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>RUT</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for apoderado in apoderados %}
+            <tr>
+              <td>{{ apoderado.nombre_completo }}</td>
+              <td>{{ apoderado.rut_apoderado }}</td>
+              <td>{{ apoderado.telefono }}</td>
+              <td>{{ apoderado.correo }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="4" style="text-align: center; padding: 20px; color: #666;">No hay apoderados registrados aún.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </article>
+{% endblock %}

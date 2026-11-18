@@ -1,0 +1,80 @@
+{% extends 'gestion/base.html' %}
+{% load static %}
+
+{% block title %}
+  Registrar Jugador | Ayllu Basket
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}" />
+{% endblock %}
+
+{% block topbar_title %}
+  Gestión de jugadores
+{% endblock %}
+
+{% block content %}
+  <section class="page-heading">
+    <div>
+      <p class="eyebrow">Gestión del club / Jugadores / Nuevo</p>
+      <h1>Inscribir Jugador</h1>
+      <p>Registra al jugador y vincula a su apoderado.</p>
+    </div>
+    <div class="actions">
+      <a href="{% url 'gestion:jugadores' %}" class="btn btn-light"><i class="bi bi-arrow-left"></i> Volver al directorio</a>
+    </div>
+  </section>
+
+  <article class="card" style="max-width: 800px; margin: 0 auto;">
+    <div class="card-head">
+      <div>
+        <h2 class="card-title">Datos de la inscripción</h2>
+        <p class="card-subtitle">Completa todos los campos</p>
+      </div>
+    </div>
+    <div class="card-body" style="padding: 24px;">
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-grid">
+          <div class="form-field">
+            <label>{{ form.nombre_completo.label }}</label>
+            {{ form.nombre_completo }}
+            <small style="color: red;">{{ form.nombre_completo.errors }}</small>
+          </div>
+
+          <div class="form-field">
+            <label>{{ form.rut_jugador.label }}</label>
+            {{ form.rut_jugador }}
+            <small style="color: red;">{{ form.rut_jugador.errors }}</small>
+          </div>
+
+          <div class="form-field">
+            <label>{{ form.fecha_nacimiento.label }}</label>
+            {{ form.fecha_nacimiento }}
+            <small style="color: red;">{{ form.fecha_nacimiento.errors }}</small>
+          </div>
+
+          <div class="form-field">
+            <label>{{ form.categoria.label }}</label>
+            {{ form.categoria }}
+            <small style="color: red;">{{ form.categoria.errors }}</small>
+          </div>
+
+          <div class="form-field full">
+            <label>{{ form.apoderado.label }}</label>
+            {{ form.apoderado }}
+            <small style="color: red;">{{ form.apoderado.errors }}</small>
+            <p class="form-hint" style="margin-top: 8px; font-size: 0.85em; color: #666;">
+              <a href="{% url 'gestion:registrar_apoderado' %}" target="_blank">Crear uno nuevo</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 10px;">
+          <a href="{% url 'gestion:jugadores' %}" class="btn btn-light">Cancelar</a>
+          <button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar inscripción</button>
+        </div>
+      </form>
+    </div>
+  </article>
+{% endblock %}

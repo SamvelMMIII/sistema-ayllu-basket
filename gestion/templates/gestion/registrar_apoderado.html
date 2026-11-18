@@ -1,0 +1,63 @@
+{% extends 'gestion/base.html' %}
+{% load static %}
+
+{% block title %}
+  Registrar Apoderado | Ayllu Basket
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}" />
+{% endblock %}
+
+{% block topbar_title %}
+  Apoderados
+{% endblock %}
+
+{% block content %}
+  <section class="page-heading">
+    <div>
+      <p class="eyebrow">Gestión del club / Apoderados / Nuevo</p>
+      <h1>Registrar Apoderado</h1>
+      <p>Ingresa los datos de contacto del apoderado.</p>
+    </div>
+    <div class="actions">
+      <a href="{% url 'gestion:apoderados' %}" class="btn btn-light"><i class="bi bi-arrow-left"></i> Volver</a>
+    </div>
+  </section>
+
+  <article class="card" style="max-width: 700px; margin: 0 auto;">
+    <div class="card-head">
+      <div>
+        <h2 class="card-title">Datos del apoderado</h2>
+        <p class="card-subtitle">Completa todos los campos</p>
+      </div>
+    </div>
+    <div class="card-body" style="padding: 24px;">
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-grid">
+          <div class="form-field full">
+            <label>{{ form.nombre_completo.label }}</label>
+            {{ form.nombre_completo }}
+          </div>
+          <div class="form-field">
+            <label>{{ form.rut_apoderado.label }}</label>
+            {{ form.rut_apoderado }}
+          </div>
+          <div class="form-field">
+            <label>{{ form.telefono.label }}</label>
+            {{ form.telefono }}
+          </div>
+          <div class="form-field full">
+            <label>{{ form.correo.label }}</label>
+            {{ form.correo }}
+          </div>
+        </div>
+        <div class="modal-actions" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 10px;">
+          <a href="{% url 'gestion:apoderados' %}" class="btn btn-light">Cancelar</a>
+          <button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar apoderado</button>
+        </div>
+      </form>
+    </div>
+  </article>
+{% endblock %}
