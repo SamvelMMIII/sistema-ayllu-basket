@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Jugador, Apoderado
+from .models import Jugador, Apoderado, Categoria
 from .forms import JugadorForm, ApoderadoForm
 
 def acceso(request):
@@ -13,11 +13,19 @@ def registrar_jugador(request):
     if request.method == 'POST':
         form = JugadorForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('gestion:jugadores')
+            jugador = form.save(commit=False)
+            anio = jugador.fecha_nacimiento.year
+            categoria = Categoria.objects.filter(
+                anio_inicio__lte=anio,
+                anio_fin__gte=anio
+            ).first()
+            if categoria:
+                jugador.categoria = categoria
+                jugador.save()
+                return redirect('gestion:jugadores')
+            form.add_error('fecha_nacimiento', 'No existe una categoria')
     else:
         form = JugadorForm()
-    
     return render(request, "gestion/registrar_jugador.html", {'form': form})
 
 def apoderados(request):
