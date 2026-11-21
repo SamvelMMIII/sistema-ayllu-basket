@@ -209,7 +209,7 @@
               <strong>Categoría U13 Varones</strong>Gimnasio Club Vecino · Llegada sugerida: 09:15
             </p>
           </div>
-          <a class="btn btn-light" style="width:100%;margin-top:14px" href="{% url 'gestion:jugadores' %}">Revisar nómina</a>
+          {% if puede_gestionar_jugadores %}<a class="btn btn-light" style="width:100%;margin-top:14px" href="{% url 'gestion:jugadores' %}">Revisar nómina</a>{% endif %}
         </div>
       </article>
       <article class="card">

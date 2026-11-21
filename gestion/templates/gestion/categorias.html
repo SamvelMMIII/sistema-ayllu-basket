@@ -70,7 +70,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U11%20Mixto">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U11%20Mixto">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
     </section>
   </div>
@@ -90,7 +90,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U13%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U13%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="U13 Varones">
         <div class="category-top">
@@ -102,7 +102,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U13%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U13%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="U15 Damas">
         <div class="category-top">
@@ -114,7 +114,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U15%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U15%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="U15 Varones">
         <div class="category-top">
@@ -126,7 +126,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U15%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U15%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="U17 Damas">
         <div class="category-top">
@@ -138,7 +138,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U17%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U17%20Damas">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="U17 Varones">
         <div class="category-top">
@@ -150,7 +150,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U17%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U17%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
     </section>
   </div>
@@ -170,7 +170,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U21%20%2F%20Sub-21">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U21%20%2F%20Sub-21">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="U23 Varones">
         <div class="category-top">
@@ -182,7 +182,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=U23%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=U23%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="Varones TC">
         <div class="category-top">
@@ -194,7 +194,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=Varones%20TC">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=Varones%20TC">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
       <article class="card category-card" data-category-name="Máx 35+ Varones">
         <div class="category-top">
@@ -206,7 +206,7 @@
         <div class="category-info">
           <span><i class="bi bi-people"></i> Nómina por vincular</span><span><i class="bi bi-clock"></i> Horario por definir</span><span><i class="bi bi-person-badge"></i> Entrenador por asignar</span>
         </div>
-        <a class="link" href="{% url 'gestion:jugadores' %}?categoria=Máx%2035%2B%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+        {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}?categoria=Máx%2035%2B%20Varones">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
       </article>
     </section>
   </div>

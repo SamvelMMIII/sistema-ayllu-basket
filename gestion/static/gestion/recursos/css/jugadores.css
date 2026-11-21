@@ -1,3 +1,64 @@
 #players-table {
   min-width: 900px;
 }
+.player-filter-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.player-filter-form .search {
+  flex: 1 1 260px;
+  max-width: 380px;
+}
+
+.player-filter-form select.field {
+  min-width: 190px;
+}
+
+.player-form-card {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.player-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.table-empty {
+  padding: 28px 16px;
+  color: var(--muted);
+  text-align: center;
+  white-space: normal;
+}
+
+.form-field ul.errorlist {
+  margin: 0;
+  padding-left: 18px;
+  color: #a12828;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .player-filter-form {
+    justify-content: stretch;
+  }
+
+  .player-filter-form .search,
+  .player-filter-form select.field {
+    max-width: none;
+    width: 100%;
+  }
+
+  .player-form-actions .btn {
+    flex: 1;
+  }
+}

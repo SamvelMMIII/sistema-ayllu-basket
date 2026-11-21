@@ -10,10 +10,20 @@
   flex: 1;
   min-width: 75px;
   padding: 9px 8px;
+  border: 1px solid transparent;
+  background: transparent;
   text-align: center;
   border-radius: 10px;
   color: var(--muted);
   font-size: 12px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.day-chip:not(.selected):hover,
+.day-chip:not(.selected):focus-visible {
+  background: var(--orange-soft);
+  color: var(--wine-dark);
 }
 
 .day-chip strong {
@@ -25,6 +35,12 @@
 
 .day-chip.selected {
   background: var(--wine);
+  color: #fff;
+}
+
+.day-chip.selected:hover,
+.day-chip.selected:focus-visible {
+  background: var(--wine-dark);
   color: #fff;
 }
 

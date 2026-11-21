@@ -2,35 +2,7 @@
   const toast = document.querySelector('.toast');
   let toastTimer;
   let paymentRow = null;
-  let editingUserRow = null;
   let attendanceEvent = null;
-
-  let currentUser = '';
-  try { currentUser = sessionStorage.getItem('aylluUserName') || ''; } catch {}
-  if (currentUser) {
-    document.querySelectorAll('[data-user-display]').forEach((element) => { element.textContent = currentUser; });
-    const firstName = document.querySelector('[data-user-first-name]');
-    if (firstName) firstName.textContent = currentUser.trim().split(/\s+/)[0];
-  }
-
-  document.querySelectorAll('[data-logout]').forEach((link) => {
-    link.addEventListener('click', () => { try { sessionStorage.removeItem('aylluUserName'); } catch {} });
-  });
-
-  document.querySelectorAll('[data-auth-form]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const error = form.querySelector('[data-auth-error]');
-      if (form.dataset.authForm === 'register' && data.password !== data.confirm) {
-        if (error) error.textContent = 'Las contraseñas no coinciden.';
-        return;
-      }
-      const name = form.dataset.authForm === 'register' ? data.name : data.email.split('@')[0];
-      try { sessionStorage.setItem('aylluUserName', name.trim()); } catch {}
-      window.location.href = document.body.dataset.homeUrl;
-    });
-  });
 
   function notify(message) {
     if (!toast) return;
@@ -43,33 +15,12 @@
   document.querySelectorAll('[data-open-modal]').forEach((button) => {
     button.addEventListener('click', () => {
       const dialog = document.getElementById(button.dataset.openModal);
-      if (dialog?.id === 'user-modal') {
-        editingUserRow = null;
-        dialog.querySelector('form')?.reset();
-        refreshRoleFields();
-        const heading = dialog.querySelector('.modal-head h2');
-        if (heading) heading.textContent = 'Agregar usuario';
-      }
       if (dialog?.showModal) dialog.showModal();
     });
   });
   document.querySelectorAll('[data-close-modal]').forEach((button) => {
     button.addEventListener('click', () => button.closest('dialog')?.close());
   });
-  const userRoleSelect = document.getElementById('user-role');
-  const playerAssociationField = document.querySelector('[data-player-association]');
-  function refreshRoleFields() {
-    const isCoach = userRoleSelect?.value === 'Entrenador';
-    const isGuardian = userRoleSelect?.value === 'Apoderado';
-    const scope = document.getElementById('user-scope');
-    const player = document.getElementById('user-player');
-    if (scope) scope.required = isCoach;
-    if (player) player.required = isGuardian;
-    if (playerAssociationField) playerAssociationField.style.display = isGuardian ? 'grid' : 'none';
-  }
-  userRoleSelect?.addEventListener('change', refreshRoleFields);
-  refreshRoleFields();
-
   function updateTable(table) {
     if (!table) return;
     const search = document.querySelector(`[data-filter-search="${table.id}"]`);
@@ -91,10 +42,6 @@
       const count = document.getElementById('visible-count');
       if (count) count.textContent = visible;
     }
-    if (table.id === 'users-table') {
-      const count = document.getElementById('users-visible-count');
-      if (count) count.textContent = visible;
-    }
   }
   document.querySelectorAll('[data-filter-search]').forEach((input) => {
     input.addEventListener('input', () => updateTable(document.getElementById(input.dataset.filterSearch)));
@@ -108,27 +55,6 @@
     playerCategoryFilter.value = requestedCategory;
     updateTable(document.getElementById('players-table'));
   }
-
-  function attachUserEditor(button) {
-    if (!button) return;
-    button.addEventListener('click', () => {
-      editingUserRow = button.closest('tr');
-      const modal = document.getElementById('user-modal');
-      const form = modal?.querySelector('form');
-      if (!editingUserRow || !form) return;
-      form.elements.name.value = editingUserRow.querySelector('.player-name')?.textContent || '';
-      form.elements.email.value = editingUserRow.querySelector('.muted')?.textContent || '';
-      form.elements.role.value = editingUserRow.dataset.role;
-      const scope = editingUserRow.cells[2].textContent;
-      form.elements.scope.value = [...form.elements.scope.options].some((option) => option.value === scope || option.textContent === scope) ? scope : 'No aplica';
-      refreshRoleFields();
-      if (editingUserRow.dataset.role === 'Apoderado' && form.elements.player) form.elements.player.value = scope;
-      const heading = modal.querySelector('.modal-head h2');
-      if (heading) heading.textContent = 'Editar permisos';
-      modal.showModal();
-    });
-  }
-  document.querySelectorAll('[data-edit-user]').forEach(attachUserEditor);
 
   document.querySelectorAll('[data-day-filter]').forEach((button) => {
     button.addEventListener('click', () => {
@@ -300,38 +226,6 @@
           updateTable(document.getElementById('players-table'));
         }
         notify('Inscripción agregada.');
-      }
-
-      if (kind === 'user') {
-        const table = document.querySelector('#users-table tbody');
-        const roleSummary = { Presidente: 'Resumen del club', Tesorera: 'Pagos y mensualidades', Secretaria: 'Inscripciones y agenda' };
-        const assignedScope = data.role === 'Apoderado' ? data.player : data.role === 'Entrenador' ? data.scope : roleSummary[data.role];
-        const roleTone = { Presidente: 'badge-blue', Tesorera: 'badge-yellow', Secretaria: 'badge-neutral', Entrenador: 'badge-green', Apoderado: 'badge-neutral' }[data.role] || 'badge-neutral';
-        if (editingUserRow) {
-          editingUserRow.dataset.role = data.role;
-          const roleBadge = editingUserRow.cells[1].querySelector('.badge');
-          roleBadge.className = `badge ${roleTone}`;
-          roleBadge.textContent = data.role;
-          editingUserRow.cells[2].textContent = assignedScope;
-          editingUserRow = null;
-          notify('Permisos actualizados.');
-        } else if (table) {
-          const row = document.createElement('tr'); row.dataset.role = data.role;
-          const person = document.createElement('td'); person.innerHTML = '<div class="player-cell"><span class="player-avatar"></span><span><span class="player-name"></span><br><span class="muted"></span></span></div>';
-          person.querySelector('.player-avatar').textContent = initials(data.name);
-          person.querySelector('.player-name').textContent = data.name;
-          person.querySelector('.muted').textContent = data.email;
-          const role = document.createElement('td'); const badge = document.createElement('span'); badge.className = `badge ${roleTone}`; badge.textContent = data.role; role.append(badge);
-          const scope = document.createElement('td'); scope.textContent = assignedScope;
-          const status = document.createElement('td'); status.innerHTML = '<span class="badge badge-green">Activo</span>';
-          const action = document.createElement('td'); action.innerHTML = '<button class="icon-btn" title="Cambiar rol" data-edit-user><i class="bi bi-pencil"></i></button>';
-          row.append(person, role, scope, status, action); table.prepend(row);
-          const total = document.querySelector('[data-user-count]');
-          if (total) total.textContent = Number(total.textContent) + 1;
-          attachUserEditor(action.querySelector('[data-edit-user]'));
-          updateTable(document.getElementById('users-table'));
-          notify('Usuario agregado.');
-        }
       }
 
       if (kind === 'category') {
