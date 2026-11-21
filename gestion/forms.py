@@ -21,6 +21,10 @@ class ApoderadoForm(forms.ModelForm):
 
 
 class JugadorForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['apoderado'].empty_label = 'Sin apoderado (jugador adulto)'
+
     class Meta:
         model = Jugador
         fields = ['nombre_completo', 'rut_jugador', 'fecha_nacimiento', 'apoderado']
@@ -34,5 +38,29 @@ class JugadorForm(forms.ModelForm):
             'nombre_completo': 'Nombre del jugador',
             'rut_jugador': 'RUT del jugador',
             'fecha_nacimiento': 'Fecha de nacimiento',
+            'apoderado': 'Apoderado responsable',
+        }
+
+
+class ActualizarJugadorForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['apoderado'].empty_label = 'Sin apoderado (jugador adulto)'
+
+    class Meta:
+        model = Jugador
+        fields = ['nombre_completo', 'rut_jugador', 'fecha_nacimiento', 'categoria', 'apoderado']
+        widgets = {
+            'nombre_completo': forms.TextInput(attrs={'class': 'field', 'autocomplete': 'name'}),
+            'rut_jugador': forms.TextInput(attrs={'class': 'field', 'placeholder': '12.345.678-9'}),
+            'fecha_nacimiento': forms.DateInput(attrs={'class': 'field', 'type': 'date'}),
+            'categoria': forms.Select(attrs={'class': 'field'}),
+            'apoderado': forms.Select(attrs={'class': 'field'}),
+        }
+        labels = {
+            'nombre_completo': 'Nombre completo',
+            'rut_jugador': 'RUT del jugador',
+            'fecha_nacimiento': 'Fecha de nacimiento',
+            'categoria': 'Categoría',
             'apoderado': 'Apoderado responsable',
         }

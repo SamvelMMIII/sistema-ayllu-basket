@@ -1,0 +1,6 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Acceso restringido | Ayllu Basket</title><link rel="stylesheet" href="{% static 'gestion/recursos/css/estilos.css' %}"><link rel="stylesheet" href="{% static 'gestion/recursos/css/acceso.css' %}"></head>
+  <body class="auth-page"><main class="auth-card"><section class="auth-panel"><h1>Acceso restringido</h1><p>Tu cuenta no tiene permiso para consultar o modificar jugadores. Contacta a la administraci&oacute;n del club.</p><a class="btn btn-primary" href="{% url 'gestion:home' %}">Volver al inicio</a></section></main></body>
+</html>
