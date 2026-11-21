@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Ayllu Basket{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{% static 'gestion/recursos/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'gestion/recursos/css/estilos.css' %}?v=2">
     {% block extra_css %}{% endblock %}
   </head>
   <body>
@@ -16,26 +16,41 @@
         <p class="nav-label">Gestión del club</p>
         <nav class="nav-list">
           <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'gestion:home' %}"><i class="bi bi-grid-1x2-fill"></i><span>Inicio</span></a>
+{% if puede_gestionar_jugadores %}
           <a class="nav-link {% if request.resolver_match.url_name == 'jugadores' or request.resolver_match.url_name == 'registrar_jugador' %}active{% endif %}" href="{% url 'gestion:jugadores' %}"><i class="bi bi-people-fill"></i><span>Jugadores</span></a>
+{% endif %}
+{% if puede_gestionar_jugadores %}
           <a class="nav-link {% if request.resolver_match.url_name == 'apoderados' or request.resolver_match.url_name == 'registrar_apoderado' %}active{% endif %}" href="{% url 'gestion:apoderados' %}"><i class="bi bi-person-heart"></i><span>Apoderados</span></a>
+{% endif %}
           <a class="nav-link {% if request.resolver_match.url_name == 'categorias' %}active{% endif %}" href="{% url 'gestion:categorias' %}"><i class="bi bi-collection-fill"></i><span>Categorías</span></a>
           <a class="nav-link {% if request.resolver_match.url_name == 'calendario' %}active{% endif %}" href="{% url 'gestion:calendario' %}"><i class="bi bi-calendar-event-fill"></i><span>Calendario</span></a>
           <a class="nav-link {% if request.resolver_match.url_name == 'pagos' %}active{% endif %}" href="{% url 'gestion:pagos' %}"><i class="bi bi-wallet2"></i><span>Pagos</span></a>
+{% if user.is_staff %}
           <a class="nav-link {% if request.resolver_match.url_name == 'usuarios' %}active{% endif %}" href="{% url 'gestion:usuarios' %}"><i class="bi bi-person-gear"></i><span>Usuarios</span></a>
+{% endif %}
         </nav>
         <div class="sidebar-bottom">
-          <a class="nav-link" href="{% url 'gestion:acceso' %}" data-logout><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+          <form method="post" action="{% url 'cuentas:logout' %}" class="logout-form">
+            {% csrf_token %}
+            <button class="nav-link" type="submit"><i class="bi bi-box-arrow-left"></i><span>Cerrar sesi&oacute;n</span></button>
+          </form>
           <div class="profile">
-            <span class="avatar">MR</span><span class="profile-copy"><strong data-user-display>María Rojas</strong><small>Administración</small></span>
+            <span class="avatar">{{ user.get_full_name|default:user.email|slice:":2"|upper }}</span>
+            <span class="profile-copy"><strong>{{ user.get_full_name|default:user.email }}</strong><small>{{ perfil_actual.get_rol_display|default:"Cuenta" }}</small></span>
           </div>
         </div>
       </aside>
       <div class="workspace">
         <header class="topbar">
           <span class="topbar-title">{% block topbar_title %}Panel{% endblock %}</span>
-          <span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span><span data-user-display>María Rojas</span></span>
+          <span class="topbar-right"><span><i class="online-dot"></i>Temporada 2026</span><span>·</span>{{ user.get_full_name|default:user.email }}</span>
         </header>
         <main class="main">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="notice" role="status"><i class="bi bi-info-circle notice-icon" aria-hidden="true"></i><p>{{ message }}</p></div>
+            {% endfor %}
+          {% endif %}
           {% block content %}{% endblock %}
         </main>
       </div>

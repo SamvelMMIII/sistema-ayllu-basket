@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Apoderado(models.Model):
     nombre_completo = models.CharField(max_length=150)
     telefono = models.CharField(max_length=20)
@@ -20,7 +18,12 @@ class Categoria(models.Model):
         return self.nombre_categoria
 
 class Jugador(models.Model):
-    apoderado = models.ForeignKey(Apoderado, on_delete=models.PROTECT)
+    apoderado = models.ForeignKey(
+        Apoderado,
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+    )
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
     nombre_completo = models.CharField(max_length=150)
     fecha_nacimiento = models.DateField()

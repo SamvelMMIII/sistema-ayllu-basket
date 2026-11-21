@@ -12,12 +12,12 @@
 {% block content %}
   <section class="page-heading">
     <div>
-      <p class="eyebrow">Domingo, 8 de noviembre de 2026</p>
-      <h1>Hola, <span data-user-first-name>María</span></h1>
+      <p class="eyebrow">{% now "l, j \d\e F \d\e Y" %}</p>
+      <h1>Hola, {{ user.first_name|default:user.email }}</h1>
       <p>Resumen del club y tareas pendientes.</p>
     </div>
     <div class="actions">
-      <a class="btn btn-light" href="{% url 'gestion:calendario' %}"><i class="bi bi-calendar-plus"></i> Agendar actividad</a><a class="btn btn-primary" href="{% url 'gestion:jugadores' %}"><i class="bi bi-person-plus"></i> Inscribir jugador</a>
+      <a class="btn btn-light" href="{% url 'gestion:calendario' %}"><i class="bi bi-calendar-plus"></i> Agendar actividad</a>{% if puede_gestionar_jugadores %}<a class="btn btn-primary" href="{% url 'gestion:jugadores' %}"><i class="bi bi-person-plus"></i> Inscribir jugador</a>{% endif %}
     </div>
   </section>
   <section class="stat-grid" aria-label="Resumen del club">
@@ -83,7 +83,7 @@
             <h2 class="card-title">Actividad reciente</h2>
             <p class="card-subtitle">Últimos movimientos en el club</p>
           </div>
-          <a class="link" href="{% url 'gestion:jugadores' %}">Ver jugadores <i class="bi bi-arrow-right"></i></a>
+          {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}">Ver jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
         </div>
         <div class="card-body">
           <div class="activity-list">

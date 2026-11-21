@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crear cuenta | Ayllu Basket</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'gestion/recursos/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'gestion/recursos/css/acceso.css' %}">
+  </head>
+  <body class="auth-page">
+    <main class="auth-card">
+      <section class="auth-brand">
+        <a class="brand" href="{% url 'cuentas:login' %}"><img src="{% static 'gestion/recursos/img/ayllu-basket-logo.jpg' %}" alt=""><span>AYLLU <b>BASKET</b></span></a>
+        <div class="auth-brand-copy"><span class="auth-mark"><i class="bi bi-people"></i></span><h1>Crear cuenta</h1><p>Club de B&aacute;squetbol Ayllu Basket</p></div>
+        <div class="auth-brand-mark"><small>Administraci&oacute;n del club</small></div>
+      </section>
+      <section class="auth-panel">
+        <h2>Crear cuenta</h2>
+        <p>Completa tus datos para registrarte.</p>
+        <form class="auth-form" method="post" novalidate>
+          {% csrf_token %}{{ form.non_field_errors }}
+          <div class="form-field"><label for="{{ form.nombre_completo.id_for_label }}">{{ form.nombre_completo.label }}</label>{{ form.nombre_completo }}{{ form.nombre_completo.errors }}</div>
+          <div class="form-field"><label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>{{ form.username }}{{ form.username.errors }}</div>
+          <div class="form-field"><label for="{{ form.telefono.id_for_label }}">{{ form.telefono.label }}</label>{{ form.telefono }}{{ form.telefono.errors }}</div>
+          <div class="form-field"><label for="{{ form.password1.id_for_label }}">Contrase&ntilde;a</label>{{ form.password1 }}{{ form.password1.errors }}{% if form.password1.help_text %}<div class="form-hint">{{ form.password1.help_text|safe }}</div>{% endif %}</div>
+          <div class="form-field"><label for="{{ form.password2.id_for_label }}">Confirmar contrase&ntilde;a</label>{{ form.password2 }}{{ form.password2.errors }}</div>
+          <p class="form-hint">Las cuentas nuevas comienzan como apoderado. La administraci&oacute;n asigna los roles de tesorera y secretaria.</p>
+          <button class="btn btn-primary" type="submit">Crear cuenta <i class="bi bi-arrow-right"></i></button>
+        </form>
+        <p class="auth-switch">&iquest;Ya tienes una cuenta? <a href="{% url 'cuentas:login' %}">Iniciar sesi&oacute;n</a></p>
+      </section>
+    </main>
+  </body>
+</html>

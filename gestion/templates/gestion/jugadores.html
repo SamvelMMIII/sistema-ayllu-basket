@@ -1,132 +1,111 @@
 {% extends 'gestion/base.html' %}
 {% load static %}
 
-{% block title %}
-  Jugadores | Ayllu Basket
-{% endblock %}
+{% block title %}Jugadores | Ayllu Basket{% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}" />
+  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}">
 {% endblock %}
 
-{% block topbar_title %}
-  Gestión de jugadores
-{% endblock %}
+{% block topbar_title %}Gestión de jugadores{% endblock %}
+
 {% block content %}
   <section class="page-heading">
     <div>
       <p class="eyebrow">Gestión del club / Jugadores</p>
       <h1>Jugadores</h1>
-      <p>Administra las inscripciones, categorías y contactos de apoderados.</p>
+      <p>Consulta y actualiza los datos personales, la categoría y el apoderado responsable.</p>
     </div>
     <div class="actions">
       <a href="{% url 'gestion:registrar_jugador' %}" class="btn btn-primary"><i class="bi bi-person-plus"></i> Inscribir jugador</a>
     </div>
   </section>
-  <section class="stat-grid">
-    <article class="card stat-card">
-      <div class="stat-top">
-        <span>Inscritos esta temporada</span><span class="stat-icon"><i class="bi bi-people"></i></span>
-      </div>
-      <div class="stat-value" data-total-players>{{ jugadores|length }}</div>
-      <div class="stat-foot">Inscripciones activas</div>
-    </article>
-    <article class="card stat-card">
-      <div class="stat-top">
-        <span>Inscripciones por revisar</span><span class="stat-icon"><i class="bi bi-person-plus"></i></span>
-      </div>
-      <div class="stat-value">6</div>
-      <div class="stat-foot">Falta completar documentación</div>
-    </article>
-    <article class="card stat-card">
-      <div class="stat-top">
-        <span>Asistencia promedio</span><span class="stat-icon"><i class="bi bi-calendar2-check"></i></span>
-      </div>
-      <div class="stat-value">91%</div>
-      <div class="stat-foot">Últimos 30 días</div>
-    </article>
-    <article class="card stat-card">
-      <div class="stat-top">
-        <span>Con cuota pendiente</span><span class="stat-icon"><i class="bi bi-exclamation-circle"></i></span>
-      </div>
-      <div class="stat-value">18</div>
-      <div class="stat-foot">
-        Revisar en <a class="link" href="{% url 'gestion:pagos' %}">Pagos</a>
-      </div>
-    </article>
-  </section>
+
   <article class="card">
     <div class="card-head">
       <div>
         <h2 class="card-title">Directorio de jugadores</h2>
-        <p class="card-subtitle">Información de contacto y estado de cada inscripción</p>
+        <p class="card-subtitle">{{ total_jugadores }} inscritos · {{ jugadores|length }} resultados</p>
       </div>
-      <button class="btn btn-light btn-sm" onclick="window.print()"><i class="bi bi-download"></i> Exportar</button>
     </div>
-    <div class="toolbar">
-      <span class="toolbar-count"><strong id="visible-count">{{ jugadores|length }}</strong> resultados</span>
-      <div class="filters">
-        <label class="search"><i class="bi bi-search"></i><input class="field" type="search" placeholder="Buscar jugador o apoderado" data-filter-search="players-table" /></label>
-        <select class="field" data-filter-select="players-table">
+    <div class="toolbar player-toolbar">
+      <form method="get" class="player-filter-form">
+        <label class="search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input class="field" type="search" name="q" value="{{ query }}" placeholder="Nombre, RUT o apoderado" aria-label="Buscar jugadores">
+        </label>
+        <label class="visually-hidden" for="player-category-filter">Filtrar por categoría</label>
+        <select class="field" id="player-category-filter" name="categoria">
           <option value="">Todas las categorías</option>
-          <option>U11 Mixto</option>
-          <option>U13 Damas</option>
-          <option>U13 Varones</option>
-          <option>U15 Damas</option>
+          {% for categoria in categorias %}
+            <option value="{{ categoria.id }}" {% if categoria_seleccionada == categoria.id %}selected{% endif %}>{{ categoria.nombre_categoria }}</option>
+          {% endfor %}
         </select>
-      </div>
+        <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
+        {% if query or categoria_id %}
+          <a class="btn btn-light btn-sm" href="{% url 'gestion:jugadores' %}">Limpiar</a>
+        {% endif %}
+      </form>
     </div>
     <div class="table-wrap">
       <table id="players-table">
         <thead>
           <tr>
             <th>Jugador</th>
+            <th>RUT</th>
             <th>Categoría</th>
+            <th>Fecha de nacimiento</th>
             <th>Apoderado</th>
-            <th>Asistencia</th>
-            <th>Mensualidad</th>
-            <th>Inscripción</th>
-            <th></th>
+            <th>Contacto</th>
+            <th>Acción</th>
           </tr>
         </thead>
         <tbody>
           {% for jugador in jugadores %}
-            <tr data-category="{{ jugador.categoria.nombre_categoria }}">
+            <tr>
               <td>
                 <div class="player-cell">
                   <span class="player-avatar">{{ jugador.nombre_completo|slice:':2'|upper }}</span>
-                  <span>
-                    <span class="player-name">{{ jugador.nombre_completo }}</span><br />
-                    <span class="muted">{{ jugador.rut_jugador }}</span>
-                  </span>
+                  <span class="player-name">{{ jugador.nombre_completo }}</span>
                 </div>
               </td>
+              <td>{{ jugador.rut_jugador }}</td>
+              <td><span class="badge badge-neutral">{{ jugador.categoria.nombre_categoria }}</span></td>
+              <td>{{ jugador.fecha_nacimiento|date:'d/m/Y' }}</td>
               <td>
-                <span class="badge badge-neutral">{{ jugador.categoria.nombre_categoria }}</span>
+                {% if jugador.apoderado %}
+                  {{ jugador.apoderado.nombre_completo }}
+                {% else %}
+                  <span class="muted">Sin apoderado</span>
+                {% endif %}
               </td>
               <td>
-                {{ jugador.apoderado.nombre_completo }}<br />
-                <span class="muted">{{ jugador.apoderado.telefono }}</span>
-              </td>
-              <td>--</td>
-              <td>
-                <span class="badge badge-green">Al día</span>
-              </td>
-              <td>
-                <span class="badge badge-green">Completa</span>
+                {% if jugador.apoderado %}
+                  <a class="link" href="mailto:{{ jugador.apoderado.correo }}">{{ jugador.apoderado.correo }}</a><br>
+                  <span class="muted">{{ jugador.apoderado.telefono }}</span>
+                {% else %}
+                  <span class="muted">Sin datos de contacto</span>
+                {% endif %}
               </td>
               <td>
-                <button class="icon-btn" title="Ver ficha" data-player-detail="{{ jugador.nombre_completo }}"><i class="bi bi-arrow-up-right"></i></button>
+                <a class="btn btn-light btn-sm" href="{% url 'gestion:editar_jugador' jugador.id %}" aria-label="Editar ficha de {{ jugador.nombre_completo }}">
+                  <i class="bi bi-pencil-square" aria-hidden="true"></i> Editar
+                </a>
               </td>
             </tr>
           {% empty %}
             <tr>
-              <td colspan="7" style="text-align: center; padding: 20px; color: #666;">No hay jugadores registrados en la base de datos aún.</td>
+              <td colspan="7" class="table-empty">
+                {% if query or categoria_id %}
+                  No hay jugadores que coincidan con esos filtros.
+                {% else %}
+                  Aún no hay jugadores registrados.
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
         </tbody>
       </table>
-      <div class="empty-filter" id="players-empty">No encontramos jugadores con esos filtros.</div>
     </div>
   </article>
 {% endblock %}

@@ -1,76 +1,61 @@
 {% extends 'gestion/base.html' %}
 {% load static %}
 
-{% block title %}
-  Registrar Jugador | Ayllu Basket
-{% endblock %}
+{% block title %}Registrar jugador | Ayllu Basket{% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}" />
+  <link rel="stylesheet" href="{% static 'gestion/recursos/css/jugadores.css' %}">
 {% endblock %}
 
-{% block topbar_title %}
-  Gestión de jugadores
-{% endblock %}
+{% block topbar_title %}Gestión de jugadores{% endblock %}
 
 {% block content %}
   <section class="page-heading">
     <div>
       <p class="eyebrow">Gestión del club / Jugadores / Nuevo</p>
-      <h1>Inscribir Jugador</h1>
-      <p>Registra al jugador y vincula a su apoderado.</p>
+      <h1>Inscribir jugador</h1>
+      <p>Registra al jugador y, si corresponde, vincúlalo con su apoderado.</p>
     </div>
     <div class="actions">
       <a href="{% url 'gestion:jugadores' %}" class="btn btn-light"><i class="bi bi-arrow-left"></i> Volver al directorio</a>
     </div>
   </section>
 
-  <article class="card" style="max-width: 800px; margin: 0 auto;">
+  <article class="card player-form-card">
     <div class="card-head">
       <div>
-        <h2 class="card-title">Datos de la inscripción</h2>
-        <p class="card-subtitle">Completa todos los campos</p>
+        <h2 class="card-title">Datos de inscripción</h2>
+        <p class="card-subtitle">La categoría se asigna según los rangos configurados para la fecha de nacimiento.</p>
       </div>
     </div>
-    <div class="card-body" style="padding: 24px;">
-      <form method="post">
+    <div class="card-body">
+      <form method="post" novalidate>
         {% csrf_token %}
+        {{ form.non_field_errors }}
         <div class="form-grid">
           <div class="form-field">
-            <label>{{ form.nombre_completo.label }}</label>
+            <label for="{{ form.nombre_completo.id_for_label }}">{{ form.nombre_completo.label }}</label>
             {{ form.nombre_completo }}
-            <small style="color: red;">{{ form.nombre_completo.errors }}</small>
+            {{ form.nombre_completo.errors }}
           </div>
-
           <div class="form-field">
-            <label>{{ form.rut_jugador.label }}</label>
+            <label for="{{ form.rut_jugador.id_for_label }}">{{ form.rut_jugador.label }}</label>
             {{ form.rut_jugador }}
-            <small style="color: red;">{{ form.rut_jugador.errors }}</small>
+            {{ form.rut_jugador.errors }}
           </div>
-
           <div class="form-field">
-            <label>{{ form.fecha_nacimiento.label }}</label>
+            <label for="{{ form.fecha_nacimiento.id_for_label }}">{{ form.fecha_nacimiento.label }}</label>
             {{ form.fecha_nacimiento }}
-            <small style="color: red;">{{ form.fecha_nacimiento.errors }}</small>
+            {{ form.fecha_nacimiento.errors }}
           </div>
-
-          <div class="form-field">
-            <label>{{ form.categoria.label }}</label>
-            {{ form.categoria }}
-            <small style="color: red;">{{ form.categoria.errors }}</small>
-          </div>
-
           <div class="form-field full">
-            <label>{{ form.apoderado.label }}</label>
+            <label for="{{ form.apoderado.id_for_label }}">{{ form.apoderado.label }}</label>
             {{ form.apoderado }}
-            <small style="color: red;">{{ form.apoderado.errors }}</small>
-            <p class="form-hint" style="margin-top: 8px; font-size: 0.85em; color: #666;">
-              <a href="{% url 'gestion:registrar_apoderado' %}" target="_blank">Crear uno nuevo</a>
-            </p>
+            {{ form.apoderado.errors }}
+            <p class="form-hint">Es opcional para jugadores adultos. <a href="{% url 'gestion:registrar_apoderado' %}">Registrar un apoderado</a></p>
           </div>
         </div>
-
-        <div class="modal-actions" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 10px;">
+        <div class="player-form-actions">
           <a href="{% url 'gestion:jugadores' %}" class="btn btn-light">Cancelar</a>
           <button class="btn btn-primary" type="submit"><i class="bi bi-check2"></i> Guardar inscripción</button>
         </div>

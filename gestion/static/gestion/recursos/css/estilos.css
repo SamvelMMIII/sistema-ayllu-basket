@@ -245,7 +245,8 @@ button {
   transition: .15s;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 6px 14px #321d1412;
 }
@@ -255,13 +256,22 @@ button {
   color: #fff;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
   background: var(--wine-dark);
+  color: #fff;
 }
 
 .btn-light {
   border-color: var(--line);
   background: #fff;
+}
+
+.btn-light:hover,
+.btn-light:focus-visible {
+  border-color: var(--wine);
+  background: var(--orange-soft);
+  color: var(--wine-dark);
 }
 
 .btn-sm {
@@ -277,6 +287,13 @@ button {
   border-radius: 8px;
   background: #fff;
   color: var(--muted);
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+  border-color: var(--wine);
+  background: var(--orange-soft);
+  color: var(--wine-dark);
 }
 
 .card {
@@ -899,3 +916,32 @@ tbody tr:hover {
   color: var(--muted);
   font-size: 12px;
 }
+
+.logout-form {
+  margin: 0;
+}
+
+.logout-form button.nav-link {
+  width: 100%;
+  border: 0;
+  padding: 11px 12px;
+  appearance: none;
+  background: transparent;
+  color: #ffffffbd;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.logout-form button.nav-link:hover {
+  background: #ffffff17;
+  color: #fff;
+}
+
+.logout-form button.nav-link:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+.auth-message { padding: 10px 12px; border-radius: 8px; background: #e8f4ed; color: #28734f; font-size: 14px; }
+.auth-error, .errorlist { color: #a12828; font-size: 13px; }
+.auth-form .errorlist { margin: 4px 0 0; padding-left: 18px; }

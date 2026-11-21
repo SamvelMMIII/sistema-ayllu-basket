@@ -277,7 +277,7 @@
               <strong>Martes 10 de noviembre</strong><small>Envía avisos antes del vencimiento</small>
             </div>
           </div>
-          <a class="link" href="{% url 'gestion:jugadores' %}">Ver directorio de jugadores <i class="bi bi-arrow-right"></i></a>
+          {% if puede_gestionar_jugadores %}<a class="link" href="{% url 'gestion:jugadores' %}">Ver directorio de jugadores <i class="bi bi-arrow-right"></i></a>{% endif %}
         </div>
       </article>
     </aside>
